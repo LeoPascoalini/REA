@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(awk 'NR>=96150 && NR<=96215' Routine_Macros_DKC1.asm)",
+      "Bash(grep -vE '^\\\\s*$')",
+      "Bash(awk 'NR>=106185 && NR<=106215' Routine_Macros_DKC1.asm)",
+      "Bash(awk '/^CODE_BF8D5F:/{p=1} /^CODE_BF8FEF:/{p=0} p' Routine_Macros_DKC1.asm)",
+      "Bash(awk '$1>9600' /c/Users/leopa/AppData/Local/Temp/claude/c--Users-leopa-Desktop-REA/98a9cce7-9a14-48a7-a40e-f7b551558cc7/scratchpad/rambi_8_30/trace.txt)",
+      "Bash(awk '{s=$11; if\\(s!=p\\){print substr\\($0,1,118\\); p=s}}')"
+    ]
+  }
+}

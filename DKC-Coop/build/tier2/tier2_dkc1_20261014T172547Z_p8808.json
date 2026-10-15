@@ -1,0 +1,35 @@
+{
+  "schema": "snesrecomp tier2 coverage v1",
+  "rom_title": "dkc1",
+  "total_tier_hits": 1217,
+  "distinct_sites": 22,
+  "overflowed_tuples": 0,
+  "journal_write_failures": 0,
+  "discoveries": [
+    {"site_pc24": "0x00A98B", "target_pc24": "0x00BC9E", "entry_mx": "M0X0", "site_kind": "goto_gap", "clean_hits": 447, "bail_hits": 0, "first_frame": 82, "last_frame": 707},
+    {"site_pc24": "0x01CC77", "target_pc24": "0x01CCA5", "entry_mx": "M1X1", "site_kind": "indirect_dispatch", "clean_hits": 223, "bail_hits": 0, "first_frame": 306, "last_frame": 707},
+    {"site_pc24": "0x01CC84", "target_pc24": "0x01CCA5", "entry_mx": "M1X1", "site_kind": "indirect_dispatch", "clean_hits": 223, "bail_hits": 0, "first_frame": 306, "last_frame": 707},
+    {"site_pc24": "0x00A98B", "target_pc24": "0x00F387", "entry_mx": "M0X0", "site_kind": "goto_gap", "clean_hits": 210, "bail_hits": 0, "first_frame": 1624, "last_frame": 1833},
+    {"site_pc24": "0x00A98B", "target_pc24": "0x00F29C", "entry_mx": "M0X0", "site_kind": "goto_gap", "clean_hits": 142, "bail_hits": 0, "first_frame": 1835, "last_frame": 1976},
+    {"site_pc24": "0x00A98B", "target_pc24": "0x0080A9", "entry_mx": "M0X0", "site_kind": "goto_gap", "clean_hits": 1491, "bail_hits": 0, "first_frame": 7115, "last_frame": 8943},
+    {"site_pc24": "0x3E813B", "target_pc24": "0x3EA596", "entry_mx": "M0X0", "site_kind": "indirect_goto", "clean_hits": 89, "bail_hits": 0, "first_frame": 7214, "last_frame": 8513},
+    {"site_pc24": "0x3583CD", "target_pc24": "0x3584B4", "entry_mx": "M0X0", "site_kind": "indirect_dispatch", "clean_hits": 3, "bail_hits": 0, "first_frame": 7217, "last_frame": 8527},
+    {"site_pc24": "0x3E813B", "target_pc24": "0x3E9630", "entry_mx": "M0X0", "site_kind": "indirect_goto", "clean_hits": 56, "bail_hits": 0, "first_frame": 7268, "last_frame": 7323},
+    {"site_pc24": "0x38BD8A", "target_pc24": "0x38BDC0", "entry_mx": "M0X1", "site_kind": "indirect_dispatch", "clean_hits": 6, "bail_hits": 0, "first_frame": 7366, "last_frame": 8481},
+    {"site_pc24": "0x38BDE5", "target_pc24": "0x3FFB71", "entry_mx": "M0X1", "site_kind": "call_gap", "clean_hits": 6, "bail_hits": 0, "first_frame": 7366, "last_frame": 8481},
+    {"site_pc24": "0x3FFB71", "target_pc24": "0x3FFB75", "entry_mx": "M0X1", "site_kind": "call_gap", "clean_hits": 6, "bail_hits": 0, "first_frame": 7366, "last_frame": 8481},
+    {"site_pc24": "0x3583CD", "target_pc24": "0x3584F5", "entry_mx": "M0X0", "site_kind": "indirect_dispatch", "clean_hits": 3, "bail_hits": 0, "first_frame": 7400, "last_frame": 8622},
+    {"site_pc24": "0x3E813B", "target_pc24": "0x3E9E6F", "entry_mx": "M0X0", "site_kind": "indirect_goto", "clean_hits": 164, "bail_hits": 0, "first_frame": 7616, "last_frame": 8647},
+    {"site_pc24": "0x00A98B", "target_pc24": "0x00A98E", "entry_mx": "M0X0", "site_kind": "goto_gap", "clean_hits": 3, "bail_hits": 0, "first_frame": 7677, "last_frame": 8944},
+    {"site_pc24": "0x3E813B", "target_pc24": "0x3EA759", "entry_mx": "M0X0", "site_kind": "goto_gap", "clean_hits": 60, "bail_hits": 0, "first_frame": 8384, "last_frame": 8683},
+    {"site_pc24": "0x3E8194", "target_pc24": "0x3E851B", "entry_mx": "M0X0", "site_kind": "indirect_goto", "clean_hits": 12, "bail_hits": 0, "first_frame": 8384, "last_frame": 8669},
+    {"site_pc24": "0x3E813B", "target_pc24": "0x3EA759", "entry_mx": "M0X0", "site_kind": "indirect_goto", "clean_hits": 55, "bail_hits": 0, "first_frame": 8385, "last_frame": 8683},
+    {"site_pc24": "0x3E8194", "target_pc24": "0x3E84DA", "entry_mx": "M0X0", "site_kind": "goto_gap", "clean_hits": 26, "bail_hits": 0, "first_frame": 8399, "last_frame": 8789},
+    {"site_pc24": "0x3E8194", "target_pc24": "0x3E84DA", "entry_mx": "M0X0", "site_kind": "indirect_goto", "clean_hits": 26, "bail_hits": 0, "first_frame": 8399, "last_frame": 8789},
+    {"site_pc24": "0x3E813B", "target_pc24": "0x3E94AB", "entry_mx": "M0X0", "site_kind": "indirect_goto", "clean_hits": 33, "bail_hits": 0, "first_frame": 8457, "last_frame": 8488},
+    {"site_pc24": "0x3E813B", "target_pc24": "0x3EDC72", "entry_mx": "M0X0", "site_kind": "indirect_goto", "clean_hits": 324, "bail_hits": 0, "first_frame": 8506, "last_frame": 8942}
+  ],
+  "ram_routines_overflow": 0,
+  "ram_routines": [
+  ]
+}
