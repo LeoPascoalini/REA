@@ -1,0 +1,886 @@
+id,tipo,rotina,linha_disasm_v1.0,dono,categoria,nota
+1,player_number_44,CODE_808047,116,NorSpr77_CreditsController,G,modo/jogador atual/controles (Team: lider)
+2,flags_0579,CODE_8080AB,169,sistema: CODE_8080AB,G,sinalizador do jogo (vale para os dois)
+3,game_mode_42,CODE_808131,231,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",G,modo/jogador atual/controles (Team: lider)
+4,current_kong_056F,CODE_808131,234,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+5,current_kong_056F,CODE_808131,237,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+6,game_mode_42,CODE_808159,243,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",G,modo/jogador atual/controles (Team: lider)
+7,flags_0579,CODE_80837A,518,"sistema: CODE_80827B, CODE_8082CF",G,sinalizador do jogo (vale para os dois)
+8,flags_0579,CODE_80837A,520,"sistema: CODE_80827B, CODE_8082CF",G,sinalizador do jogo (vale para os dois)
+9,ridden_0512,CODE_80838C,527,"sistema: CODE_80827B, CODE_8082CF",R,montaria do jogador
+10,player_slot_809B9C,CODE_8083A1,538,"sistema: CODE_80827B, CODE_8082CF",R,"inicio de area: poe o animal devolvido no jogador ($0512,y)"
+11,ridden_0512,CODE_8083A1,542,"sistema: CODE_80827B, CODE_8082CF",R,montaria do jogador
+12,flags_0579,CODE_8083BF,557,"sistema: CODE_80827B, CODE_8082CF",G,sinalizador do jogo (vale para os dois)
+13,flags_0579,CODE_8083BF,558,"sistema: CODE_80827B, CODE_8082CF",G,sinalizador do jogo (vale para os dois)
+14,flags_0579,CODE_808466,634,"sistema: CODE_80827B, CODE_8082CF",G,sinalizador do jogo (vale para os dois)
+15,flags_0579,CODE_808466,636,"sistema: CODE_80827B, CODE_8082CF",G,sinalizador do jogo (vale para os dois)
+16,player_slot_809B9C,CODE_808485,642,"sistema: CODE_80827B, CODE_8082CF",R,inicio de area: parceiro posicionado no jogador
+17,flags_0579,CODE_8084A5,657,"sistema: CODE_80827B, CODE_8082CF",G,sinalizador do jogo (vale para os dois)
+18,flags_0579,CODE_8084A5,659,"sistema: CODE_80827B, CODE_8082CF",G,sinalizador do jogo (vale para os dois)
+19,kong_index_84,CODE_80852C,715,sistema: CODE_808757,R,tabela por Kong usada por objeto/sistema
+20,ridden_0512,CODE_80852C,717,sistema: CODE_808757,R,montaria do jogador
+21,kong_index_84,CODE_80855D,743,"sistema: CODE_8086CF, CODE_808733",R,tabela por Kong usada por objeto/sistema
+22,flags_0579,CODE_80855D,748,"sistema: CODE_8086CF, CODE_808733",G,sinalizador do jogo (vale para os dois)
+23,kong_index_84,CODE_8085B7,789,"sistema: CODE_8086CF, CODE_808733",R,tabela por Kong usada por objeto/sistema
+24,ridden_0512,CODE_8085B7,791,"sistema: CODE_8086CF, CODE_808733",R,montaria do jogador
+25,ridden_0512,CODE_80862B,857,"sistema: CODE_8086CF, CODE_808733",R,montaria do jogador
+26,player_slot_809B9C,CODE_8086B1,919,"sistema: CODE_80827B, CODE_8082CF",R,inicio de area: rotina de entrada do jogador por EntranceID
+27,kong_index_84,CODE_8086B1,924,"sistema: CODE_80827B, CODE_8082CF",R,tabela por Kong usada por objeto/sistema
+28,kong_event_1929,CODE_8086CF,936,sistema: CODE_8086CF,G,sinalizador do jogo (vale para os dois)
+29,ridden_0512,CODE_8086CF,951,sistema: CODE_8086CF,R,montaria do jogador
+30,kong_index_84,CODE_808705,962,sistema: CODE_8086CF,R,tabela por Kong usada por objeto/sistema
+31,ridden_0512,CODE_808761,1007,"sistema: CODE_808733, CODE_80873F",R,montaria do jogador
+32,ridden_0512,CODE_80876D,1019,"sistema: CODE_808733, CODE_80873F",R,montaria do jogador
+33,player_slot_809B9C,CODE_808787,1036,"sistema: CODE_808733, CODE_80873F",R,entrada roteirizada: parceiro com a velocidade do jogador
+34,ridden_0512,CODE_8087D4,1075,"sistema: CODE_808733, CODE_80873F",R,montaria do jogador
+35,kong_event_1929,CODE_808809,1084,"sistema: CODE_808733, CODE_80873F",G,sinalizador do jogo (vale para os dois)
+36,player_slot_809B9C,CODE_80881E,1102,"sistema: CODE_808810, CODE_808818",R,entrada roteirizada: parceiro posto atras do jogador
+37,ridden_0512,CODE_80881E,1133,"sistema: CODE_808810, CODE_808818",R,montaria do jogador
+38,kong_event_1929,CODE_80888D,1142,"sistema: CODE_808810, CODE_808818",G,sinalizador do jogo (vale para os dois)
+39,kong_index_84,CODE_808915,1231,sistema: CODE_808757,R,tabela por Kong usada por objeto/sistema
+40,player_slot_809B9C,CODE_808F28,1890,"sistema: CODE_80821A, CODE_809713",B,limite de X do jogador numa fase (B080)
+41,pads,CODE_809AFF,3151,"sistema: CODE_80821A, CODE_809713",G,modo/jogador atual/controles (Team: lider)
+42,pads,CODE_809B15,3162,"sistema: CODE_80821A, CODE_809713",G,modo/jogador atual/controles (Team: lider)
+43,ridden_0512,CODE_809B48,3189,"sistema: CODE_80821A, CODE_809713",R,montaria do jogador
+44,flags_0579,CODE_809B48,3193,"sistema: CODE_80821A, CODE_809713",G,sinalizador do jogo (vale para os dois)
+45,flags_0579,CODE_809B48,3194,"sistema: CODE_80821A, CODE_809713",G,sinalizador do jogo (vale para os dois)
+46,flags_0579,CODE_809B78,3207,"sistema: CODE_80821A, CODE_809713",G,sinalizador do jogo (vale para os dois)
+47,flags_0579,CODE_809B78,3208,"sistema: CODE_80821A, CODE_809713",G,sinalizador do jogo (vale para os dois)
+48,player_slot_809B9C,CODE_809B9C,3222,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr0C_Enguarde",-,definicao
+49,current_kong_056F,CODE_809BA0,3227,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr0C_Enguarde",L,Kong atual = lider
+50,kong_event_1929,CODE_809BEC,3274,"sistema: CODE_80821A, CODE_809713",G,sinalizador do jogo (vale para os dois)
+51,player_slot_809B9C,CODE_809BEC,3278,"sistema: CODE_80821A, CODE_809713",L,camera segue o jogador
+52,flags_0579,CODE_809C07,3286,"sistema: CODE_80821A, CODE_809713",G,sinalizador do jogo (vale para os dois)
+53,flags_0579,CODE_809C07,3289,"sistema: CODE_80821A, CODE_809713",G,sinalizador do jogo (vale para os dois)
+54,flags_0579,CODE_809C07,3290,"sistema: CODE_80821A, CODE_809713",G,sinalizador do jogo (vale para os dois)
+55,flags_0579,CODE_809D37,3411,sistema: CODE_809D37,G,sinalizador do jogo (vale para os dois)
+56,player_slot_809B9C,CODE_809E32,3555,"sistema: CODE_80827B, CODE_8082CF",L,camera: ajuste inicial no jogador
+57,flags_0579,CODE_809F9A,3706,"sistema: CODE_80821A, CODE_80827B",G,sinalizador do jogo (vale para os dois)
+58,flags_0579,CODE_80A05E,3803,"sistema: CODE_80821A, CODE_809713",G,sinalizador do jogo (vale para os dois)
+59,game_mode_42,CODE_80A25B,4085,"sistema: CODE_80821A, CODE_809713",G,modo/jogador atual/controles (Team: lider)
+60,player_number_44,CODE_80A25B,4088,"sistema: CODE_80821A, CODE_809713",G,modo/jogador atual/controles (Team: lider)
+61,pads,CODE_80A25B,4092,"sistema: CODE_80821A, CODE_809713",G,modo/jogador atual/controles (Team: lider)
+62,pads,CODE_80A25B,4094,"sistema: CODE_80821A, CODE_809713",G,modo/jogador atual/controles (Team: lider)
+63,current_kong_056F,CODE_80A2A0,4100,"sistema: CODE_80821A, CODE_809713",L,Kong atual = lider
+64,pads,CODE_80A2A0,4104,"sistema: CODE_80821A, CODE_809713",G,modo/jogador atual/controles (Team: lider)
+65,pads,CODE_80A2A0,4106,"sistema: CODE_80821A, CODE_809713",G,modo/jogador atual/controles (Team: lider)
+66,pads,CODE_80A2BA,4111,"sistema: CODE_80821A, CODE_809713",G,modo/jogador atual/controles (Team: lider)
+67,pads,CODE_80A2BA,4113,"sistema: CODE_80821A, CODE_809713",G,modo/jogador atual/controles (Team: lider)
+68,flags_0579,CODE_80A2C6,4115,"sistema: CODE_80821A, CODE_809713",G,sinalizador do jogo (vale para os dois)
+69,kong_event_1929,CODE_80A7DA,4560,"sistema: CODE_80821A, CODE_809713",G,sinalizador do jogo (vale para os dois)
+70,pads,CODE_80AABA,4931,"sistema: CODE_80827B, CODE_8082CF",G,modo/jogador atual/controles (Team: lider)
+71,pads,CODE_80B1E2,5807,"sistema: CODE_80821A, CODE_809713",G,modo/jogador atual/controles (Team: lider)
+72,flags_0579,CODE_80B1EF,5811,"sistema: CODE_80821A, CODE_809713",G,sinalizador do jogo (vale para os dois)
+73,flags_0579,CODE_80B206,5822,"sistema: CODE_80821A, CODE_809713",G,sinalizador do jogo (vale para os dois)
+74,pads,CODE_80B2FE,5936,"sistema: CODE_80821A, CODE_809713",G,modo/jogador atual/controles (Team: lider)
+75,flags_0579,CODE_80B375,5987,"sistema: CODE_80821A, CODE_809713",G,sinalizador do jogo (vale para os dois)
+76,flags_0579,CODE_80B38B,5999,"sistema: CODE_80821A, CODE_809713",G,sinalizador do jogo (vale para os dois)
+77,pads,CODE_80B3B6,6023,"sistema: CODE_80821A, CODE_809713",G,modo/jogador atual/controles (Team: lider)
+78,flags_0579,CODE_80B3C3,6027,"sistema: CODE_80821A, CODE_809713",G,sinalizador do jogo (vale para os dois)
+79,pads,CODE_80B42D,6084,"sistema: CODE_80821A, CODE_809713",G,modo/jogador atual/controles (Team: lider)
+80,flags_0579,CODE_80B7AB,6520,"sistema: CODE_80821A, CODE_809713",G,sinalizador do jogo (vale para os dois)
+81,player_number_44,CODE_80BA2C,6847,NorSpr77_CreditsController,G,modo/jogador atual/controles (Team: lider)
+82,pads,CODE_80BE87,7316,sistema: CODE_80BC7B,G,modo/jogador atual/controles (Team: lider)
+83,pads,CODE_80BE90,7321,sistema: CODE_80BC7B,G,modo/jogador atual/controles (Team: lider)
+84,game_mode_42,CODE_80C15B,7695,"sistema: CODE_80BC7B, CODE_80CCB6",G,modo/jogador atual/controles (Team: lider)
+85,player_number_44,CODE_80C15B,7698,"sistema: CODE_80BC7B, CODE_80CCB6",G,modo/jogador atual/controles (Team: lider)
+86,pads,CODE_80C15B,7702,"sistema: CODE_80BC7B, CODE_80CCB6",G,modo/jogador atual/controles (Team: lider)
+87,pads,CODE_80C15B,7704,"sistema: CODE_80BC7B, CODE_80CCB6",G,modo/jogador atual/controles (Team: lider)
+88,current_kong_056F,CODE_80C1A2,7710,"sistema: CODE_80BC7B, CODE_80CCB6",L,Kong atual = lider
+89,pads,CODE_80C1A2,7714,"sistema: CODE_80BC7B, CODE_80CCB6",G,modo/jogador atual/controles (Team: lider)
+90,pads,CODE_80C1A2,7716,"sistema: CODE_80BC7B, CODE_80CCB6",G,modo/jogador atual/controles (Team: lider)
+91,pads,CODE_80C1BC,7721,"sistema: CODE_80BC7B, CODE_80CCB6",G,modo/jogador atual/controles (Team: lider)
+92,pads,CODE_80C1BC,7723,"sistema: CODE_80BC7B, CODE_80CCB6",G,modo/jogador atual/controles (Team: lider)
+93,kong_event_1929,CODE_80C263,7815,"sistema: CODE_80821A, CODE_809713",G,sinalizador do jogo (vale para os dois)
+94,player_slot_809B9C,CODE_80C263,7818,"sistema: CODE_80821A, CODE_809713",B,rotina por quadro do tipo de fase aplicada ao jogador
+95,kong_event_1929,CODE_80C47B,8086,"sistema: CODE_80821A, CODE_809713",G,sinalizador do jogo (vale para os dois)
+96,player_slot_809B9C,CODE_80C47B,8089,"sistema: CODE_80821A, CODE_809713",B,rotina por quadro do tipo de fase aplicada ao jogador
+97,player_slot_809B9C,CODE_80C501,8165,"sistema: CODE_80827B, CODE_8082CF",B,rotina por quadro do tipo de fase (agua) aplicada ao jogador
+98,player_number_44,CODE_80C9B4,8504,"sistema: CODE_80BC7B, CODE_80DAE5",G,modo/jogador atual/controles (Team: lider)
+99,current_kong_056F,CODE_80CEBC,9020,sistema: CODE_80CCB6,L,Kong atual = lider
+100,pads,DKC1_OWSpr10_MapDK_Main,9415,OWSpr10_MapDK,G,modo/jogador atual/controles (Team: lider)
+101,pads,CODE_80D1FE,9464,OWSpr10_MapDK,G,modo/jogador atual/controles (Team: lider)
+102,pads,CODE_80DEF9,10425,sistema: CODE_80DEF9,G,modo/jogador atual/controles (Team: lider)
+103,game_mode_42,CODE_80DF2E,10433,sistema: CODE_80DEF9,G,modo/jogador atual/controles (Team: lider)
+104,game_mode_42,CODE_80E094,10594,sistema: CODE_80E094,G,modo/jogador atual/controles (Team: lider)
+105,game_mode_42,CODE_80E0F6,10623,sistema: CODE_80E094,G,modo/jogador atual/controles (Team: lider)
+106,game_mode_42,CODE_80E0F6,10625,sistema: CODE_80E094,G,modo/jogador atual/controles (Team: lider)
+107,game_mode_42,CODE_80E10F,10629,sistema: CODE_80E094,G,modo/jogador atual/controles (Team: lider)
+108,game_mode_42,CODE_80E10F,10630,sistema: CODE_80E094,G,modo/jogador atual/controles (Team: lider)
+109,game_mode_42,CODE_80E10F,10633,sistema: CODE_80E094,G,modo/jogador atual/controles (Team: lider)
+110,flags_0579,CODE_80E2E4,10813,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",G,sinalizador do jogo (vale para os dois)
+111,current_kong_056F,CODE_80E2FE,10823,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",L,Kong atual = lider
+112,game_mode_42,CODE_80E37B,10876,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",G,modo/jogador atual/controles (Team: lider)
+113,flags_0579,CODE_80E3A6,10903,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",G,sinalizador do jogo (vale para os dois)
+114,current_kong_056F,CODE_80E3D2,10913,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",L,Kong atual = lider
+115,player_number_44,CODE_80E41A,10944,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",G,modo/jogador atual/controles (Team: lider)
+116,pads,CODE_80E751,11313,sistema: CODE_80E6B1,G,modo/jogador atual/controles (Team: lider)
+117,pads,CODE_80E776,11327,sistema: CODE_80E6B1,G,modo/jogador atual/controles (Team: lider)
+118,pads,CODE_80E776,11328,sistema: CODE_80E6B1,G,modo/jogador atual/controles (Team: lider)
+119,pads,CODE_80E78D,11339,sistema: CODE_80E6B1,G,modo/jogador atual/controles (Team: lider)
+120,pads,CODE_80E78D,11340,sistema: CODE_80E6B1,G,modo/jogador atual/controles (Team: lider)
+121,pads,CODE_80E7E6,11381,sistema: CODE_80E6B1,G,modo/jogador atual/controles (Team: lider)
+122,pads,CODE_80E822,11410,sistema: CODE_80E6B1,G,modo/jogador atual/controles (Team: lider)
+123,game_mode_42,CODE_80EB9F,11811,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",G,modo/jogador atual/controles (Team: lider)
+124,player_number_44,CODE_80EB9F,11815,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",G,modo/jogador atual/controles (Team: lider)
+125,game_mode_42,CODE_80EBAD,11818,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",G,modo/jogador atual/controles (Team: lider)
+126,player_number_44,CODE_80EBCB,11834,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",G,modo/jogador atual/controles (Team: lider)
+127,player_number_44,CODE_80EC05,11853,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",G,modo/jogador atual/controles (Team: lider)
+128,flags_0579,CODE_80EDCD,12059,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",G,sinalizador do jogo (vale para os dois)
+129,current_kong_056F,CODE_80EE05,12069,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",L,Kong atual = lider
+130,game_mode_42,CODE_80EE25,12081,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",G,modo/jogador atual/controles (Team: lider)
+131,player_number_44,CODE_80EE25,12084,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",G,modo/jogador atual/controles (Team: lider)
+132,pads,CODE_80EF35,12201,sistema: CODE_80EEA3,G,modo/jogador atual/controles (Team: lider)
+133,pads,CODE_80EF5A,12225,sistema: CODE_80EEA3,G,modo/jogador atual/controles (Team: lider)
+134,pads,CODE_80F1C2,12478,sistema: CODE_80F142,G,modo/jogador atual/controles (Team: lider)
+135,pads,CODE_80F20B,12493,sistema: CODE_80F142,G,modo/jogador atual/controles (Team: lider)
+136,flags_0579,CODE_80F52F,12812,sistema: CODE_80E6B1,G,sinalizador do jogo (vale para os dois)
+137,current_kong_056F,CODE_80F52F,12815,sistema: CODE_80E6B1,L,Kong atual = lider
+138,pads,CODE_80F661,12949,sistema: CODE_80F5E1,G,modo/jogador atual/controles (Team: lider)
+139,pads,CODE_80F6AD,12965,sistema: CODE_80F5E1,G,modo/jogador atual/controles (Team: lider)
+140,pads,CODE_80FAB3,13394,sistema: CODE_80F894,G,modo/jogador atual/controles (Team: lider)
+141,pads,CODE_80FABD,13403,sistema: CODE_80F894,G,modo/jogador atual/controles (Team: lider)
+142,pads,CODE_80FAFB,13423,sistema: CODE_80F894,G,modo/jogador atual/controles (Team: lider)
+143,pads,CODE_80FB26,13441,sistema: CODE_80F894,G,modo/jogador atual/controles (Team: lider)
+144,player_number_44,CODE_80FD04,13685,"sistema: CODE_80CCB6, CODE_80DAE5",G,modo/jogador atual/controles (Team: lider)
+145,kong_index_84,CODE_B581A3,37106,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr05_Kritter",C,tabela por Kong usada por objeto/sistema
+146,kong_index_84,CODE_B581A3,37112,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr05_Kritter",C,tabela por Kong usada por objeto/sistema
+147,kong_index_84,CODE_B581A3,37118,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr05_Kritter",C,tabela por Kong usada por objeto/sistema
+148,flags_0579,CODE_B58424,37428,sistema: CODE_B58436,G,sinalizador do jogo (vale para os dois)
+149,flags_0579,CODE_B58436,37450,sistema: CODE_B58436,G,sinalizador do jogo (vale para os dois)
+150,pads,DATA_B58A53,37997,sistema: DATA_B58A53,G,modo/jogador atual/controles (Team: lider)
+151,pads,DATA_B58A7B,38011,sistema: DATA_B58A7B,G,modo/jogador atual/controles (Team: lider)
+152,pads,DATA_B58B01,38060,sistema: DATA_B58B01,G,modo/jogador atual/controles (Team: lider)
+153,pads,DATA_B58D81,38261,sistema: DATA_B58D81,G,modo/jogador atual/controles (Team: lider)
+154,pads,DATA_B59C4F,39611,sistema: DATA_B59C4F,G,modo/jogador atual/controles (Team: lider)
+155,pads,DATA_B5A11D,40076,sistema: DATA_B5A11D,G,modo/jogador atual/controles (Team: lider)
+156,pads,DATA_B5A467,40389,sistema: DATA_B5A467,G,modo/jogador atual/controles (Team: lider)
+157,pads,DATA_B5AABB,40958,sistema: DATA_B5AABB,G,modo/jogador atual/controles (Team: lider)
+158,pads,DATA_B5B19B,41585,sistema: DATA_B5B19B,G,modo/jogador atual/controles (Team: lider)
+159,pads,DATA_B5B1E1,41615,sistema: DATA_B5B1E1,G,modo/jogador atual/controles (Team: lider)
+160,pads,DATA_B5DCF7,45659,sistema: DATA_B5DCF7,G,modo/jogador atual/controles (Team: lider)
+161,pads,DATA_B5DDC3,45725,sistema: DATA_B5DDC3,G,modo/jogador atual/controles (Team: lider)
+162,pads,DATA_B5DF59,45859,sistema: DATA_B5DF59,G,modo/jogador atual/controles (Team: lider)
+163,pads,DATA_B5DF95,45879,sistema: DATA_B5DF95,G,modo/jogador atual/controles (Team: lider)
+164,pads,DATA_B5DFB7,45890,sistema: DATA_B5DFB7,G,modo/jogador atual/controles (Team: lider)
+165,player_slot_809B9C,CODE_B68000,49258,NorSpr31_SwingingRope,C,corda balancante: agarrar (so o jogador)
+166,touch_active_BBA574,CODE_B68384,49585,NorSpr45_AnimalBuddyToken,T,toque so no Kong ativo -> os dois (ja feito)
+167,kong_event_1929,CODE_B68406,49651,NorSpr45_AnimalBuddyToken,G,sinalizador do jogo (vale para os dois)
+168,player_slot_809B9C,CODE_B68406,49653,NorSpr45_AnimalBuddyToken,R,fichas de animal: poe o jogador no estado do bonus
+169,player_slot_809B9C,CODE_B68574,49812,NorSpr45_AnimalBuddyToken,L,"fichas de animal: contador por jogador ($1703,y)"
+170,ridden_0512,CODE_B68624,49920,"NorSpr46_BlueKrusha, NorSpr78_GreyKrusha",C,montaria do jogador
+171,pads,DATA_B68A7E,50308,sistema: DATA_B68A7E,G,modo/jogador atual/controles (Team: lider)
+172,pads,DATA_B68ADA,50341,sistema: DATA_B68ADA,G,modo/jogador atual/controles (Team: lider)
+173,pads,CODE_B694A1,50784,NorSpr4B_MiniNecky,G,modo/jogador atual/controles (Team: lider)
+174,player_slot_809B9C,CODE_B694F2,50816,NorSpr4B_MiniNecky,A,Mini-Necky vira para o jogador
+175,touch_other_BBA6xx,CODE_B696D2,51092,"NorSpr25_OilDrum, NorSpr4C_EnemySpawnBarrel",T,"toque so no Kong ativo (pneus, tambores...) -> os dois"
+176,player_slot_809B9C,CODE_B6970A,51122,NorSpr4C_EnemySpawnBarrel,A,barril de inimigos: dispara com o jogador perto
+177,player_slot_809B9C,CODE_B69CD6,51869,NorSpr51_Minecart,C,carrinho: estado do jogador
+178,kong_event_1929,CODE_B69F36,52159,NorSpr51_Minecart,G,sinalizador do jogo (vale para os dois)
+179,flags_0579,CODE_B69F36,52164,NorSpr51_Minecart,G,sinalizador do jogo (vale para os dois)
+180,player_slot_809B9C,CODE_B69F36,52167,NorSpr51_Minecart,C,carrinho: esconde o parceiro ($0C) ao embarcar
+181,current_kong_056F,CODE_B69F6F,52185,NorSpr51_Minecart,L,Kong atual = lider
+182,flags_0579,CODE_B69FD9,52230,NorSpr51_Minecart,G,sinalizador do jogo (vale para os dois)
+183,player_slot_809B9C,CODE_B69FD9,52233,NorSpr51_Minecart,C,carrinho: categoria do jogador
+184,pads,DATA_B6A09C,52318,sistema: DATA_B6A09C,G,modo/jogador atual/controles (Team: lider)
+185,player_slot_809B9C,CODE_B6A1AD,52450,NorSpr51_Minecart,C,carrinho: jogador caindo nele embarca
+186,touch_active_BBA574,CODE_B6A1AD,52455,NorSpr51_Minecart,T,toque so no Kong ativo -> os dois (ja feito)
+187,touch_category_BBA58D,CODE_B6A695,53033,NorSpr51_Minecart,T,toque por categoria (ja pega os dois)
+188,flags_0579,CODE_B6A6D3,53063,NorSpr51_Minecart,G,sinalizador do jogo (vale para os dois)
+189,player_slot_809B9C,CODE_B6A6D3,53066,NorSpr51_Minecart,C,carrinho: jogador morto/caindo
+190,touch_active_BBA574,CODE_B6A727,53117,NorSpr34_LifeBalloon,T,toque so no Kong ativo -> os dois (ja feito)
+191,player_slot_809B9C,CODE_B6AA85,53536,NorSpr57_Croctopus,A,Croctopus: gatilho pela posicao do jogador
+192,player_slot_809B9C,CODE_B6AC23,53773,NorSpr58_LineGuidePlatform,A,plataforma-guia: ativa com o jogador perto
+193,flags_0579,CODE_B6AC7D,53819,NorSpr58_LineGuidePlatform,G,sinalizador do jogo (vale para os dois)
+194,flags_0579,CODE_B6AC8D,53827,NorSpr58_LineGuidePlatform,G,sinalizador do jogo (vale para os dois)
+195,player_slot_809B9C,CODE_B6AD1E,53890,NorSpr58_LineGuidePlatform,L,plataforma-guia: foco de camera ($1E29) com jogador perto
+196,player_slot_809B9C,CODE_B6AE2F,54032,NorSpr58_LineGuidePlatform,L,plataforma-guia: modo de camera ($1E2B) pela posicao
+197,player_slot_809B9C,CODE_B6AE7E,54077,NorSpr58_LineGuidePlatform,C,plataforma-guia: jogador em cima dela
+198,player_slot_809B9C,CODE_B6AF1A,54150,NorSpr58_LineGuidePlatform,A,plataforma-guia: some com o jogador longe
+199,flags_0579,CODE_B6AF34,54164,NorSpr58_LineGuidePlatform,G,sinalizador do jogo (vale para os dois)
+200,flags_0579,CODE_B6AF61,54181,NorSpr58_LineGuidePlatform,G,sinalizador do jogo (vale para os dois)
+201,touch_active_BBA574,CODE_B6B054,54310,NorSpr5C_FuelCan,T,toque so no Kong ativo -> os dois (ja feito)
+202,pads,CODE_B6BAB0,55707,NorSpr0E_NutThrowingNecky,G,modo/jogador atual/controles (Team: lider)
+203,player_slot_809B9C,CODE_B6BBDB,55845,NorSpr5D_CameraObject,L,objeto de camera
+204,flags_0579,CODE_B6BE62,56182,NorSpr64_LightGimmickController,G,sinalizador do jogo (vale para os dois)
+205,flags_0579,CODE_B6BE62,56183,NorSpr64_LightGimmickController,G,sinalizador do jogo (vale para os dois)
+206,flags_0579,CODE_B6BE7C,56191,NorSpr64_LightGimmickController,G,sinalizador do jogo (vale para os dois)
+207,flags_0579,CODE_B6BE7C,56193,NorSpr64_LightGimmickController,G,sinalizador do jogo (vale para os dois)
+208,flags_0579,CODE_B6BE8F,56195,NorSpr64_LightGimmickController,G,sinalizador do jogo (vale para os dois)
+209,flags_0579,CODE_B6BE99,56210,NorSpr64_LightGimmickController,G,sinalizador do jogo (vale para os dois)
+210,flags_0579,CODE_B6BE99,56212,NorSpr64_LightGimmickController,G,sinalizador do jogo (vale para os dois)
+211,flags_0579,CODE_B6BEBE,56216,NorSpr64_LightGimmickController,G,sinalizador do jogo (vale para os dois)
+212,flags_0579,CODE_B6BEC9,56231,NorSpr64_LightGimmickController,G,sinalizador do jogo (vale para os dois)
+213,flags_0579,CODE_B6BEC9,56233,NorSpr64_LightGimmickController,G,sinalizador do jogo (vale para os dois)
+214,flags_0579,CODE_B6BF01,56254,NorSpr64_LightGimmickController,G,sinalizador do jogo (vale para os dois)
+215,flags_0579,CODE_B6BF01,56255,NorSpr64_LightGimmickController,G,sinalizador do jogo (vale para os dois)
+216,flags_0579,CODE_B6BF20,56269,NorSpr64_LightGimmickController,G,sinalizador do jogo (vale para os dois)
+217,flags_0579,CODE_B6BF20,56270,NorSpr64_LightGimmickController,G,sinalizador do jogo (vale para os dois)
+218,flags_0579,CODE_B6BF48,56287,NorSpr64_LightGimmickController,G,sinalizador do jogo (vale para os dois)
+219,flags_0579,CODE_B6BF48,56288,NorSpr64_LightGimmickController,G,sinalizador do jogo (vale para os dois)
+220,flags_0579,CODE_B6BF86,56322,NorSpr64_LightGimmickController,G,sinalizador do jogo (vale para os dois)
+221,flags_0579,CODE_B6BF86,56324,NorSpr64_LightGimmickController,G,sinalizador do jogo (vale para os dois)
+222,touch_active_BBA574,CODE_B6BFD2,56365,NorSpr63_LightSwitchBarrel,T,toque so no Kong ativo -> os dois (ja feito)
+223,flags_0579,CODE_B6BFD2,56371,NorSpr63_LightSwitchBarrel,G,sinalizador do jogo (vale para os dois)
+224,flags_0579,CODE_B6BFD2,56373,NorSpr63_LightSwitchBarrel,G,sinalizador do jogo (vale para os dois)
+225,touch_active_BBA574,CODE_B6C014,56393,NorSpr63_LightSwitchBarrel,T,toque so no Kong ativo -> os dois (ja feito)
+226,flags_0579,CODE_B6C02A,56402,NorSpr63_LightSwitchBarrel,G,sinalizador do jogo (vale para os dois)
+227,flags_0579,CODE_B6C02A,56404,NorSpr63_LightSwitchBarrel,G,sinalizador do jogo (vale para os dois)
+228,flags_0579,CODE_B6C03F,56424,"NorSpr63_LightSwitchBarrel, NorSpr64_LightGimmickController",G,sinalizador do jogo (vale para os dois)
+229,flags_0579,CODE_B6C080,56442,"NorSpr63_LightSwitchBarrel, NorSpr64_LightGimmickController",G,sinalizador do jogo (vale para os dois)
+230,flags_0579,CODE_B6C242,56658,NorSpr68_Rockkroc,G,sinalizador do jogo (vale para os dois)
+231,touch_active_BBA574,CODE_B6C313,56766,NorSpr28_OilFire,T,toque so no Kong ativo -> os dois (ja feito)
+232,player_slot_809B9C,CODE_B6C3C1,56858,NorSpr6B_UnderwaterExitDoor,R,porta de saida subaquatica: estado do jogador
+233,player_slot_809B9C,CODE_B6C3EB,56875,NorSpr6B_UnderwaterExitDoor,R,porta de saida subaquatica: jogador passou
+234,bonus_return_1705,CODE_B6C421,56902,NorSpr6B_UnderwaterExitDoor,L,destino de volta por jogador (compartilhado)
+235,player_slot_809B9C,CODE_B6C425,56909,NorSpr6A_ExitDoor,R,porta de saida: estado do jogador
+236,player_slot_809B9C,CODE_B6C45C,56940,NorSpr6A_ExitDoor,R,porta de saida: jogador aperta cima na porta
+237,bonus_return_1705,CODE_B6C4CB,56987,NorSpr6A_ExitDoor,L,destino de volta por jogador (compartilhado)
+238,player_slot_809B9C,CODE_B6C522,57036,NorSpr14_BreakableWall,R,entrada/parede: jogador alinhado
+239,kong_event_1929,CODE_B6C54C,57061,NorSpr14_BreakableWall,G,sinalizador do jogo (vale para os dois)
+240,player_slot_809B9C,CODE_B6C573,57081,NorSpr14_BreakableWall,L,"entrada: destino de volta por jogador ($1705,y)"
+241,bonus_return_1705,CODE_B6C573,57086,NorSpr14_BreakableWall,L,destino de volta por jogador (compartilhado)
+242,player_slot_809B9C,CODE_B6C599,57104,NorSpr14_BreakableWall,R,entrada: jogador entra (estado $1F)
+243,touch_active_BBA574,CODE_B6C5BF,57125,NorSpr14_BreakableWall,T,toque so no Kong ativo -> os dois (ja feito)
+244,pads,CODE_B6C661,57216,NorSpr14_BreakableWall,G,modo/jogador atual/controles (Team: lider)
+245,player_slot_809B9C,CODE_B6C694,57223,NorSpr14_BreakableWall,R,entrada: jogador entra
+246,touch_active_BBA574,CODE_B6C6B5,57245,NorSpr14_BreakableWall,T,toque so no Kong ativo -> os dois (ja feito)
+247,flags_0579,CODE_B6CA49,57664,NorSpr6C_MinigameController,G,sinalizador do jogo (vale para os dois)
+248,player_slot_809B9C,CODE_B6CA49,57669,NorSpr6C_MinigameController,A,minigame: posiciona item no jogador
+249,pads,CODE_B6CD15,58041,NorSpr6C_MinigameController,G,modo/jogador atual/controles (Team: lider)
+250,pads,CODE_B6CE67,58216,NorSpr6C_MinigameController,G,modo/jogador atual/controles (Team: lider)
+251,player_slot_809B9C,CODE_B6CEAE,58243,NorSpr6C_MinigameController,A,minigame: jogador no chao
+252,flags_0579,CODE_B6D119,58567,NorSpr6C_MinigameController,G,sinalizador do jogo (vale para os dois)
+253,flags_0579,CODE_B6D1B5,58641,NorSpr6C_MinigameController,G,sinalizador do jogo (vale para os dois)
+254,flags_0579,CODE_B6D1B5,58643,NorSpr6C_MinigameController,G,sinalizador do jogo (vale para os dois)
+255,touch_active_BBA574,CODE_B6D2E4,58818,NorSpr6D_MinigameBarrel,T,toque so no Kong ativo -> os dois (ja feito)
+256,touch_active_BBA574,CODE_B6D44F,59012,NorSpr6D_MinigameBarrel,T,toque so no Kong ativo -> os dois (ja feito)
+257,pads,CODE_B6D4CA,59085,NorSpr6E_MinigameItemDisplay,G,modo/jogador atual/controles (Team: lider)
+258,touch_active_BBA574,CODE_B6D4F7,59112,NorSpr6E_MinigameItemDisplay,T,toque so no Kong ativo -> os dois (ja feito)
+259,touch_active_BBA574,CODE_B6D551,59159,NorSpr6E_MinigameItemDisplay,T,toque so no Kong ativo -> os dois (ja feito)
+260,player_slot_809B9C,CODE_B6D6BC,59313,NorSpr6E_MinigameItemDisplay,A,item do minigame segue o jogador
+261,player_slot_809B9C,CODE_B6D71C,59365,NorSpr6E_MinigameItemDisplay,A,item do minigame perto do jogador
+262,touch_active_BBA574,CODE_B6D762,59399,NorSpr6E_MinigameItemDisplay,T,toque so no Kong ativo -> os dois (ja feito)
+263,player_slot_809B9C,CODE_B6DB9B,59941,NorSpr70_CurrentWorldBoss,A,chefe: altura do jogador
+264,player_slot_809B9C,CODE_B6DC6D,60040,NorSpr70_CurrentWorldBoss,A,chefe: X do jogador
+265,player_slot_809B9C,CODE_B6E109,60556,NorSpr70_CurrentWorldBoss,A,chefe vira para o jogador
+266,player_slot_809B9C,CODE_B6E609,61160,NorSpr70_CurrentWorldBoss,A,chefe
+267,player_slot_809B9C,CODE_B6E648,61196,NorSpr70_CurrentWorldBoss,A,chefe: distancia ao jogador
+268,pads,CODE_B6E6EF,61287,NorSpr70_CurrentWorldBoss,G,modo/jogador atual/controles (Team: lider)
+269,flags_0579,CODE_B6EAAA,61738,NorSpr70_CurrentWorldBoss,G,sinalizador do jogo (vale para os dois)
+270,player_slot_809B9C,CODE_B6EAAA,61742,NorSpr70_CurrentWorldBoss,R,chefe: cena que vira o jogador
+271,pads,DATA_B6EB45,61818,sistema: DATA_B6EB45,G,modo/jogador atual/controles (Team: lider)
+272,kong_event_1929,CODE_B6F39F,62289,NorSpr6F_UnknownSprite,G,sinalizador do jogo (vale para os dois)
+273,pads,CODE_B6F39F,62311,NorSpr6F_UnknownSprite,G,modo/jogador atual/controles (Team: lider)
+274,player_slot_809B9C,CODE_B6F3F7,62320,"NorSpr38_BarrelCannon, NorSpr6F_UnknownSprite",C,barril-canhao: poe o jogador dentro ($48)
+275,kong_index_84,CODE_B6F3F7,62324,"NorSpr38_BarrelCannon, NorSpr6F_UnknownSprite",C,tabela por Kong usada por objeto/sistema
+276,kong_index_84,CODE_B6F3F7,62343,"NorSpr38_BarrelCannon, NorSpr6F_UnknownSprite",C,tabela por Kong usada por objeto/sistema
+277,ridden_0512,CODE_B6F3F7,62344,"NorSpr38_BarrelCannon, NorSpr6F_UnknownSprite",C,montaria do jogador
+278,flags_0579,CODE_B6F440,62349,"NorSpr38_BarrelCannon, NorSpr6F_UnknownSprite",G,sinalizador do jogo (vale para os dois)
+279,player_slot_809B9C,CODE_B6F452,62361,"NorSpr38_BarrelCannon, NorSpr6F_UnknownSprite",C,barril-canhao: parceiro vira seguidor
+280,kong_index_84,CODE_B6F46B,62380,"NorSpr38_BarrelCannon, NorSpr6F_UnknownSprite",C,tabela por Kong usada por objeto/sistema
+281,player_slot_809B9C,CODE_B6F54F,62501,NorSpr71_MillstoneGnawty,A,Gnawty da mo: gatilho pela posicao
+282,player_slot_809B9C,CODE_B6F5EF,62592,NorSpr0D_Squawks,L,Squawks acompanha o jogador
+283,touch_active_BBA574,CODE_B6F6C3,62724,NorSpr4A_CheckpointBarrel,T,toque so no Kong ativo -> os dois (ja feito)
+284,player_slot_809B9C,CODE_B6F76F,62803,NorSpr4A_CheckpointBarrel,R,checkpoint: estado do jogador
+285,flags_0579,CODE_B6F76F,62810,NorSpr4A_CheckpointBarrel,G,sinalizador do jogo (vale para os dois)
+286,ridden_0512,CODE_B6F795,62826,NorSpr4A_CheckpointBarrel,C,montaria do jogador
+287,player_slot_809B9C,CODE_B6F7B0,62841,NorSpr4A_CheckpointBarrel,R,checkpoint: poe o jogador no barril
+288,flags_0579,CODE_B6F7B0,62862,NorSpr4A_CheckpointBarrel,G,sinalizador do jogo (vale para os dois)
+289,ridden_0512,CODE_B6F810,62884,NorSpr4A_CheckpointBarrel,C,montaria do jogador
+290,kong_event_1929,CODE_B6F90C,63018,NorSpr72_Timer,G,sinalizador do jogo (vale para os dois)
+291,kong_event_1929,CODE_B6F93E,63048,NorSpr72_Timer,G,sinalizador do jogo (vale para os dois)
+292,player_slot_809B9C,CODE_B6F983,63072,NorSpr72_Timer,R,tempo esgotado: fim da fase
+293,kong_event_1929,CODE_B6FA36,63160,NorSpr76_LargeAnimalBuddyToken,G,sinalizador do jogo (vale para os dois)
+294,touch_active_BBA574,CODE_B6FA36,63165,NorSpr76_LargeAnimalBuddyToken,T,toque so no Kong ativo -> os dois (ja feito)
+295,player_slot_809B9C,CODE_B6FB74,63304,NorSpr70_CurrentWorldBoss,A,chefe: distancia
+296,player_slot_809B9C,CODE_B6FBC7,63352,NorSpr74_GiantBanana,R,banana gigante: vitoria do jogador
+297,kong_event_1929,CODE_B6FC0A,63390,NorSpr74_GiantBanana,G,sinalizador do jogo (vale para os dois)
+298,player_slot_809B9C,CODE_B6FC0A,63391,NorSpr74_GiantBanana,R,banana gigante: posicao
+299,kong_event_1929,CODE_B6FC74,63446,NorSpr70_CurrentWorldBoss,G,sinalizador do jogo (vale para os dois)
+300,touch_category_BBA58D,CODE_B88001,64005,"sistema: CODE_BEA0EB, CODE_BEA100",T,toque por categoria (ja pega os dois)
+301,kong_index_84,CODE_B88064,64049,"sistema: CODE_BEA0EB, CODE_BEA100",R,tabela por Kong usada por objeto/sistema
+302,kong_event_1929,CODE_B88064,64055,"sistema: CODE_BEA0EB, CODE_BEA100",G,sinalizador do jogo (vale para os dois)
+303,game_mode_42,CODE_B880D2,64099,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",G,modo/jogador atual/controles (Team: lider)
+304,player_number_44,CODE_B880D2,64102,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",G,modo/jogador atual/controles (Team: lider)
+305,current_kong_056F,CODE_B880E4,64107,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+306,ridden_0512,CODE_B88128,64141,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+307,kong_index_84,CODE_B8822B,64264,sistema: CODE_808757,R,tabela por Kong usada por objeto/sistema
+308,flags_0579,CODE_B8822B,64269,sistema: CODE_808757,G,sinalizador do jogo (vale para os dois)
+309,ridden_0512,CODE_B88288,64316,"sistema: CODE_80DEF9, CODE_80E094",R,montaria do jogador
+310,current_kong_056F,CODE_B88288,64321,"sistema: CODE_80DEF9, CODE_80E094",L,Kong atual = lider
+311,flags_0579,CODE_B88288,64329,"sistema: CODE_80DEF9, CODE_80E094",G,sinalizador do jogo (vale para os dois)
+312,flags_0579,CODE_B882D9,64346,"sistema: CODE_80821A, CODE_809713",G,sinalizador do jogo (vale para os dois)
+313,flags_0579,ADDR_B8830E,64391,sistema: ADDR_B8830E,G,sinalizador do jogo (vale para os dois)
+314,flags_0579,ADDR_B8830E,64392,sistema: ADDR_B8830E,G,sinalizador do jogo (vale para os dois)
+315,player_slot_809B9C,CODE_B88383,64445,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",L,"transicao: le destino do jogador ($1705,y)"
+316,bonus_return_1705,CODE_B88383,64448,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",L,destino de volta por jogador (compartilhado)
+317,player_slot_809B9C,CODE_B883CD,64469,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",L,transicao: le destino do jogador
+318,bonus_return_1705,CODE_B883CD,64472,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",L,destino de volta por jogador (compartilhado)
+319,bonus_return_1705,CODE_B883CD,64478,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",L,destino de volta por jogador (compartilhado)
+320,player_slot_809B9C,CODE_B88408,64491,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",L,"transicao: devolve o animal ao jogador ($0512,y)"
+321,ridden_0512,CODE_B88408,64495,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",C,montaria do jogador
+322,player_slot_809B9C,CODE_B88429,64505,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",L,transicao: guarda o animal do jogador
+323,ridden_0512,CODE_B88429,64508,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",C,montaria do jogador
+324,player_slot_809B9C,CODE_B88445,64521,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",L,transicao: le destino do jogador
+325,bonus_return_1705,CODE_B88445,64524,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",L,destino de volta por jogador (compartilhado)
+326,ridden_0512,CODE_B8845F,64531,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",C,montaria do jogador
+327,flags_0579,CODE_B884D7,64601,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",G,sinalizador do jogo (vale para os dois)
+328,flags_0579,CODE_B884D7,64603,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",G,sinalizador do jogo (vale para os dois)
+329,current_kong_056F,CODE_B884D7,64605,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",L,Kong atual = lider
+330,player_number_44,CODE_B8923E,65033,sistema: CODE_80E094,G,modo/jogador atual/controles (Team: lider)
+331,player_number_44,CODE_B8923E,65035,sistema: CODE_80E094,G,modo/jogador atual/controles (Team: lider)
+332,player_number_44,CODE_B8923E,65037,sistema: CODE_80E094,G,modo/jogador atual/controles (Team: lider)
+333,player_number_44,CODE_B8923E,65039,sistema: CODE_80E094,G,modo/jogador atual/controles (Team: lider)
+334,game_mode_42,CODE_B89283,65064,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",G,modo/jogador atual/controles (Team: lider)
+335,player_number_44,CODE_B8928B,65071,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",G,modo/jogador atual/controles (Team: lider)
+336,player_number_44,CODE_B8928B,65073,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",G,modo/jogador atual/controles (Team: lider)
+337,current_kong_056F,CODE_B892D0,65103,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",L,Kong atual = lider
+338,current_kong_056F,CODE_B89314,65137,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",L,Kong atual = lider
+339,player_number_44,CODE_B89333,65153,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",G,modo/jogador atual/controles (Team: lider)
+340,flags_0579,CODE_B89361,65182,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",G,sinalizador do jogo (vale para os dois)
+341,game_mode_42,CODE_B89361,65196,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",G,modo/jogador atual/controles (Team: lider)
+342,player_number_44,CODE_B8941C,65261,sistema: CODE_B893EB,G,modo/jogador atual/controles (Team: lider)
+343,player_number_44,CODE_B8945D,65294,sistema: CODE_80DEF9,G,modo/jogador atual/controles (Team: lider)
+344,game_mode_42,CODE_B894B5,65349,sistema: CODE_80F894,G,modo/jogador atual/controles (Team: lider)
+345,player_number_44,CODE_B894C9,65357,sistema: CODE_80F894,G,modo/jogador atual/controles (Team: lider)
+346,player_number_44,CODE_B894C9,65365,sistema: CODE_80F894,G,modo/jogador atual/controles (Team: lider)
+347,game_mode_42,CODE_B894EC,65385,"sistema: CODE_80DEF9, CODE_80F894",G,modo/jogador atual/controles (Team: lider)
+348,flags_0579,CODE_B894EC,65395,"sistema: CODE_80DEF9, CODE_80F894",G,sinalizador do jogo (vale para os dois)
+349,game_mode_42,CODE_B89542,65420,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",G,modo/jogador atual/controles (Team: lider)
+350,player_number_44,CODE_B89554,65428,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",G,modo/jogador atual/controles (Team: lider)
+351,player_number_44,CODE_B89554,65433,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",G,modo/jogador atual/controles (Team: lider)
+352,player_number_44,CODE_B89577,65483,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",G,modo/jogador atual/controles (Team: lider)
+353,game_mode_42,CODE_B89633,65526,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",G,modo/jogador atual/controles (Team: lider)
+354,flags_0579,CODE_B8999B,65940,sistema: CODE_B5841F,G,sinalizador do jogo (vale para os dois)
+355,pads,CODE_B899E4,65978,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",G,modo/jogador atual/controles (Team: lider)
+356,player_slot_809B9C,CODE_B89DE7,66367,sistema: CODE_B89DC2,G,depuracao (mostra variaveis)
+357,player_slot_809B9C,CODE_B89DE7,66376,sistema: CODE_B89DC2,G,depuracao (mostra variaveis)
+358,game_mode_42,CODE_B89FBC,66598,sistema: CODE_80E6B1,G,modo/jogador atual/controles (Team: lider)
+359,flags_0579,CODE_B98BC8,71625,"sistema: CODE_80827B, CODE_8082CF",G,sinalizador do jogo (vale para os dois)
+360,flags_0579,CODE_B98BC8,71626,"sistema: CODE_80827B, CODE_8082CF",G,sinalizador do jogo (vale para os dois)
+361,current_kong_056F,CODE_BBA564,75823,"NorSpr05_Kritter, NorSpr06_Klump, NorSpr0C_Enguarde",L,Kong atual = lider
+362,active_slot_BBA564,CODE_BBA574,75836,"NorSpr05_Kritter, NorSpr06_Klump, NorSpr0C_Enguarde",T,base dos toques so no ativo
+363,active_slot_BBA564,CODE_BBA623,75943,sistema: CODE_BBA623,T,base dos toques so no ativo
+364,touch_other_BBA6xx,CODE_BBA637,75956,sistema: CODE_BBA623,T,varredura de plataforma (ja pega os dois)
+365,active_slot_BBA564,CODE_BBA64A,75971,"NorSpr1E_UnknownRollingTire, NorSpr1F_FloatingTire, NorSpr21_UnknownSprite",T,base dos toques so no ativo
+366,touch_other_BBA6xx,CODE_BBA64A,75976,"NorSpr1E_UnknownRollingTire, NorSpr1F_FloatingTire, NorSpr21_UnknownSprite",T,varredura de plataforma (ja pega os dois)
+367,pads,DATA_BCAAA4,81364,sistema: UNK_BCAA96,G,modo/jogador atual/controles (Team: lider)
+368,flags_0579,CODE_BCB069,81955,"sistema: CODE_80821A, CODE_80827B",G,sinalizador do jogo (vale para os dois)
+369,touch_other_BBA6xx,CODE_BCB13A,82120,sistema: CODE_BCB13A,G,depuracao (movimento livre)
+370,touch_other_BBA6xx,CODE_BCB206,82161,sistema: CODE_BCB13A,G,depuracao (movimento livre)
+371,touch_other_BBA6xx,CODE_BCB5B8,82536,sistema: CODE_BCB4A6,G,depuracao (movimento livre)
+372,touch_other_BBA6xx,CODE_BCB5D7,82555,sistema: CODE_BCB4A6,G,depuracao (movimento livre)
+373,touch_other_BBA6xx,CODE_BCB5F6,82574,sistema: CODE_BCB4A6,G,depuracao (movimento livre)
+374,touch_other_BBA6xx,CODE_BCB615,82594,sistema: CODE_BCB4A6,G,depuracao (movimento livre)
+375,kong_event_1929,DATA_BCB7A0,82821,sistema: DATA_BCB7A0,G,sinalizador do jogo (vale para os dois)
+376,player_slot_809B9C,CODE_BCB864,82863,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",R,parceiro volta a seguir (estado 2)
+377,player_slot_809B9C,CODE_BCB872,82871,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr51_Minecart",R,parceiro volta a seguir
+378,current_kong_056F,CODE_BCB927,82964,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr12_UnknownSprite",L,Kong atual = lider
+379,player_slot_809B9C,CODE_BCB99D,83030,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr14_BreakableWall",L,registro de progresso por jogador
+380,pads,DATA_BDDB2A,89746,sistema: DATA_BDDB2A,G,modo/jogador atual/controles (Team: lider)
+381,pads,DATA_BDDE32,89843,sistema: DATA_BDDE32,G,modo/jogador atual/controles (Team: lider)
+382,pads,DATA_BDEFCC,90578,sistema: DATA_BDEFCC,G,modo/jogador atual/controles (Team: lider)
+383,pads,DATA_BDEFCC,90579,sistema: DATA_BDEFCC,G,modo/jogador atual/controles (Team: lider)
+384,kong_index_84,CODE_BE8054,93216,"sistema: CODE_BEBAF9, CODE_BEBB00",R,tabela por Kong usada por objeto/sistema
+385,ridden_0512,CODE_BE805C,93222,"sistema: CODE_BEBAF9, CODE_BEBB00",R,montaria do jogador
+386,kong_index_84,CODE_BE8092,93257,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr0C_Enguarde",C,tabela por Kong usada por objeto/sistema
+387,ridden_0512,CODE_BE8092,93258,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr0C_Enguarde",C,montaria do jogador
+388,kong_index_84,CODE_BE80A4,93266,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr05_Kritter",C,tabela por Kong usada por objeto/sistema
+389,kong_index_84,CODE_BE81FC,93477,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr04_UnknownSprite",C,tabela por Kong usada por objeto/sistema
+390,ridden_0512,CODE_BE81FC,93478,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr04_UnknownSprite",C,montaria do jogador
+391,kong_index_84,CODE_BE823C,93513,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr04_UnknownSprite",C,tabela por Kong usada por objeto/sistema
+392,ridden_0512,CODE_BE823C,93514,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr04_UnknownSprite",C,montaria do jogador
+393,kong_index_84,CODE_BE8286,93551,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr04_UnknownSprite",C,tabela por Kong usada por objeto/sistema
+394,ridden_0512,CODE_BE8286,93552,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr04_UnknownSprite",C,montaria do jogador
+395,kong_index_84,CODE_BE82AB,93566,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr04_UnknownSprite",C,tabela por Kong usada por objeto/sistema
+396,ridden_0512,CODE_BE82AB,93567,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr04_UnknownSprite",C,montaria do jogador
+397,kong_index_84,CODE_BE82E2,93599,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr04_UnknownSprite",C,tabela por Kong usada por objeto/sistema
+398,kong_index_84,CODE_BE8322,93635,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr04_UnknownSprite",C,tabela por Kong usada por objeto/sistema
+399,kong_index_84,CODE_BE836C,93673,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr04_UnknownSprite",C,tabela por Kong usada por objeto/sistema
+400,kong_index_84,CODE_BE8391,93688,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr04_UnknownSprite",C,tabela por Kong usada por objeto/sistema
+401,flags_0579,CODE_BE84AE,93861,sistema: CODE_BE84AE,G,sinalizador do jogo (vale para os dois)
+402,kong_index_84,CODE_BE84B9,93868,sistema: CODE_BE84B9,R,tabela por Kong usada por objeto/sistema
+403,kong_index_84,CODE_BE84C8,93876,sistema: CODE_BE84C8,R,tabela por Kong usada por objeto/sistema
+404,flags_0579,CODE_BE84E3,93893,sistema: CODE_BE84E3,G,sinalizador do jogo (vale para os dois)
+405,kong_index_84,CODE_BE8541,93948,sistema: CODE_BE8541,R,tabela por Kong usada por objeto/sistema
+406,flags_0579,CODE_BE8B0A,94230,sistema: CODE_BE8B0A,G,sinalizador do jogo (vale para os dois)
+407,flags_0579,CODE_BE8B16,94241,sistema: CODE_BE8B0A,G,sinalizador do jogo (vale para os dois)
+408,flags_0579,CODE_BE8B16,94243,sistema: CODE_BE8B0A,G,sinalizador do jogo (vale para os dois)
+409,kong_event_1929,CODE_BE8B5A,94274,sistema: CODE_BE8B31,G,sinalizador do jogo (vale para os dois)
+410,pads,DATA_BE8CBD,94420,sistema: DATA_BE8CBD,G,modo/jogador atual/controles (Team: lider)
+411,pads,DATA_BE8CBD,94421,sistema: DATA_BE8CBD,G,modo/jogador atual/controles (Team: lider)
+412,pads,DATA_BE8CBD,94424,sistema: DATA_BE8CBD,G,modo/jogador atual/controles (Team: lider)
+413,kong_index_84,CODE_BE8D52,94478,sistema: CODE_BE8D40,R,tabela por Kong usada por objeto/sistema
+414,kong_index_84,CODE_BE8D63,94487,sistema: CODE_BE8D40,R,tabela por Kong usada por objeto/sistema
+415,kong_index_84,CODE_BE8E98,94610,sistema: CODE_BE8E98,R,tabela por Kong usada por objeto/sistema
+416,kong_index_84,CODE_BE8EA7,94621,sistema: CODE_BE8EA7,R,tabela por Kong usada por objeto/sistema
+417,kong_index_84,CODE_BE8EDF,94645,sistema: CODE_BE8EA7,R,tabela por Kong usada por objeto/sistema
+418,kong_index_84,CODE_BE8EE8,94652,sistema: CODE_BE8EE8,R,tabela por Kong usada por objeto/sistema
+419,kong_index_84,CODE_BE8EF9,94659,sistema: CODE_BE8EE8,R,tabela por Kong usada por objeto/sistema
+420,kong_index_84,CODE_BE9130,94844,sistema: CODE_BE9130,R,tabela por Kong usada por objeto/sistema
+421,kong_index_84,CODE_BE9149,94855,sistema: CODE_BE9130,R,tabela por Kong usada por objeto/sistema
+422,kong_index_84,CODE_BE91B3,94879,sistema: CODE_BE91B3,R,tabela por Kong usada por objeto/sistema
+423,kong_index_84,CODE_BE9202,94922,sistema: CODE_BE9202,R,tabela por Kong usada por objeto/sistema
+424,kong_index_84,CODE_BE9251,94958,sistema: CODE_BE9251,R,tabela por Kong usada por objeto/sistema
+425,kong_index_84,CODE_BE9267,94967,sistema: CODE_BE9267,R,tabela por Kong usada por objeto/sistema
+426,kong_index_84,CODE_BE92B4,95009,sistema: CODE_BE92B4,R,tabela por Kong usada por objeto/sistema
+427,touch_category_BBA58D,CODE_BE94A7,95158,sistema: CODE_BE94A7,T,toque por categoria (ja pega os dois)
+428,kong_index_84,CODE_BE94A7,95170,sistema: CODE_BE94A7,R,tabela por Kong usada por objeto/sistema
+429,kong_event_1929,CODE_BE94A7,95176,sistema: CODE_BE94A7,G,sinalizador do jogo (vale para os dois)
+430,kong_index_84,CODE_BE9539,95218,sistema: CODE_BE94A7,R,tabela por Kong usada por objeto/sistema
+431,kong_index_84,CODE_BE9653,95345,sistema: CODE_BE962C,R,tabela por Kong usada por objeto/sistema
+432,kong_index_84,CODE_BE9653,95355,sistema: CODE_BE962C,R,tabela por Kong usada por objeto/sistema
+433,kong_index_84,CODE_BE968E,95376,sistema: CODE_BE962C,R,tabela por Kong usada por objeto/sistema
+434,ridden_0512,CODE_BE968E,95379,sistema: CODE_BE962C,R,montaria do jogador
+435,kong_index_84,CODE_BE96D2,95406,sistema: CODE_BE96D2,R,tabela por Kong usada por objeto/sistema
+436,kong_index_84,CODE_BE973E,95464,sistema: CODE_BE9736,R,tabela por Kong usada por objeto/sistema
+437,pads,CODE_BE9945,95684,sistema: CODE_BE9945,G,modo/jogador atual/controles (Team: lider)
+438,kong_event_1929,CODE_BE9956,95695,sistema: CODE_BE9956,G,sinalizador do jogo (vale para os dois)
+439,kong_index_84,CODE_BE9C0B,95963,sistema: CODE_BE9C0B,R,tabela por Kong usada por objeto/sistema
+440,touch_category_BBA58D,CODE_BE9C0B,95970,sistema: CODE_BE9C0B,T,toque por categoria (ja pega os dois)
+441,kong_index_84,CODE_BE9C96,96038,"sistema: CODE_BE8B0A, CODE_BE8CAA",R,tabela por Kong usada por objeto/sistema
+442,kong_index_84,CODE_BE9CA0,96043,"sistema: CODE_BE8B0A, CODE_BE8CAA",R,tabela por Kong usada por objeto/sistema
+443,kong_event_1929,CODE_BE9CF3,96085,sistema: CODE_BE9CEA,G,sinalizador do jogo (vale para os dois)
+444,kong_event_1929,CODE_BE9D08,96101,sistema: CODE_BE9D08,G,sinalizador do jogo (vale para os dois)
+445,kong_event_1929,CODE_BE9D25,96106,sistema: CODE_BE9D08,G,sinalizador do jogo (vale para os dois)
+446,pads,DATA_BE9D7F,96146,sistema: DATA_BE9D7F,G,modo/jogador atual/controles (Team: lider)
+447,pads,DATA_BE9D7F,96147,sistema: DATA_BE9D7F,G,modo/jogador atual/controles (Team: lider)
+448,pads,DATA_BE9D7F,96150,sistema: DATA_BE9D7F,G,modo/jogador atual/controles (Team: lider)
+449,kong_event_1929,CODE_BE9DAE,96161,sistema: CODE_BE9DAE,G,sinalizador do jogo (vale para os dois)
+450,kong_index_84,CODE_BE9E5F,96229,sistema: CODE_BE9E5F,R,tabela por Kong usada por objeto/sistema
+451,kong_index_84,CODE_BE9E6B,96238,sistema: CODE_BE9E6B,R,tabela por Kong usada por objeto/sistema
+452,kong_index_84,CODE_BE9EFD,96314,sistema: CODE_BE9EEA,R,tabela por Kong usada por objeto/sistema
+453,kong_index_84,CODE_BE9FBE,96390,sistema: CODE_BE9FE1,R,tabela por Kong usada por objeto/sistema
+454,kong_index_84,CODE_BE9FE1,96412,sistema: CODE_BE9FE1,R,tabela por Kong usada por objeto/sistema
+455,kong_index_84,CODE_BE9FF8,96422,sistema: CODE_BEA02E,R,tabela por Kong usada por objeto/sistema
+456,flags_0579,CODE_BEA527,96917,sistema: CODE_BE9A6D,G,sinalizador do jogo (vale para os dois)
+457,kong_index_84,CODE_BEA527,96920,sistema: CODE_BE9A6D,R,tabela por Kong usada por objeto/sistema
+458,kong_index_84,CODE_BEA5A2,96984,sistema: CODE_BE9A6D,R,tabela por Kong usada por objeto/sistema
+459,flags_0579,CODE_BEA68E,97087,sistema: CODE_BEA68E,G,sinalizador do jogo (vale para os dois)
+460,flags_0579,CODE_BEA68E,97089,sistema: CODE_BEA68E,G,sinalizador do jogo (vale para os dois)
+461,kong_index_84,CODE_BEA724,97140,sistema: CODE_BEA724,R,tabela por Kong usada por objeto/sistema
+462,current_kong_056F,CODE_BEA795,97207,sistema: CODE_BEA788,L,Kong atual = lider
+463,flags_0579,CODE_BEA7C1,97228,sistema: CODE_BEA7C1,G,sinalizador do jogo (vale para os dois)
+464,flags_0579,CODE_BEA7C1,97230,sistema: CODE_BEA7C1,G,sinalizador do jogo (vale para os dois)
+465,flags_0579,CODE_BEA7D6,97239,sistema: CODE_BEA7D6,G,sinalizador do jogo (vale para os dois)
+466,flags_0579,CODE_BEA7D6,97241,sistema: CODE_BEA7D6,G,sinalizador do jogo (vale para os dois)
+467,kong_index_84,CODE_BEABCE,97582,sistema: CODE_BEABCE,R,tabela por Kong usada por objeto/sistema
+468,kong_index_84,CODE_BEB233,98231,sistema: CODE_BEB233,R,tabela por Kong usada por objeto/sistema
+469,kong_index_84,CODE_BEB23C,98237,sistema: CODE_BEB23C,R,tabela por Kong usada por objeto/sistema
+470,kong_index_84,CODE_BEB6F8,98699,sistema: CODE_BEB6F8,R,tabela por Kong usada por objeto/sistema
+471,kong_index_84,CODE_BEBBFF,99158,sistema: CODE_BEBBFF,R,tabela por Kong usada por objeto/sistema
+472,touch_category_BBA58D,CODE_BEBC9F,99224,sistema: CODE_BEBC9F,T,toque por categoria (ja pega os dois)
+473,kong_index_84,CODE_BEBC9F,99226,sistema: CODE_BEBC9F,R,tabela por Kong usada por objeto/sistema
+474,ridden_0512,CODE_BEBC9F,99230,sistema: CODE_BEBC9F,R,montaria do jogador
+475,kong_index_84,CODE_BEBDA6,99299,sistema: CODE_BEBD93,R,tabela por Kong usada por objeto/sistema
+476,ridden_0512,CODE_BEBDA6,99300,sistema: CODE_BEBD93,R,montaria do jogador
+477,kong_index_84,CODE_BEBE4F,99389,"sistema: CODE_BE962C, CODE_BECAA9",R,tabela por Kong usada por objeto/sistema
+478,ridden_0512,CODE_BEBE4F,99390,"sistema: CODE_BE962C, CODE_BECAA9",R,montaria do jogador
+479,kong_event_1929,CODE_BEBEE7,99438,sistema: CODE_BEBEE7,G,sinalizador do jogo (vale para os dois)
+480,kong_event_1929,CODE_BEBEEB,99445,sistema: CODE_BEBEEB,G,sinalizador do jogo (vale para os dois)
+481,flags_0579,CODE_BED455,101195,sistema: CODE_BED455,G,sinalizador do jogo (vale para os dois)
+482,player_slot_809B9C,CODE_BED45E,101201,sistema: CODE_BED455,G,som do Kong preso no barril DK
+483,player_slot_809B9C,CODE_FED58F,101369,sistema: CODE_BED589,A,inimigo vira para o jogador
+484,player_slot_809B9C,CODE_BED652,101454,sistema: CODE_BED652,A,inimigo: distancia
+485,player_slot_809B9C,CODE_BEDDF5,102191,sistema: CODE_BEDDF5,A,Manky Kong vira para o jogador
+486,flags_0579,CODE_BEE3BA,102851,sistema: CODE_BEE3BA,G,sinalizador do jogo (vale para os dois)
+487,player_slot_809B9C,CODE_BEE5C0,103069,sistema: CODE_BEE5C0,L,Squawks vira com o jogador
+488,player_slot_809B9C,CODE_BEE687,103159,sistema: CODE_BEE667,A,inimigo corre na direcao do jogador
+489,player_slot_809B9C,CODE_BEE80A,103324,sistema: CODE_BEE801,A,inimigo vira para o jogador
+490,flags_0579,CODE_BF8000,104151,"sistema: CODE_80821A, CODE_809713",G,sinalizador do jogo (vale para os dois)
+491,flags_0579,CODE_BF8000,104153,"sistema: CODE_80821A, CODE_809713",G,sinalizador do jogo (vale para os dois)
+492,kong_event_1929,CODE_BF8000,104156,"sistema: CODE_80821A, CODE_809713",G,sinalizador do jogo (vale para os dois)
+493,kong_event_1929,CODE_BF808D,104221,"sistema: CODE_80821A, CODE_809713",G,sinalizador do jogo (vale para os dois)
+494,player_slot_809B9C,CODE_BF8091,104227,"sistema: CODE_80821A, CODE_809713",R,laco de sprites congelado: so o jogador anda
+495,player_slot_809B9C,CODE_BF80C1,104249,"sistema: CODE_80821A, CODE_809713",R,laco de sprites congelado: todos menos o jogador
+496,kong_index_84,CODE_BF8119,104309,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr34_LifeBalloon",C,tabela por Kong usada por objeto/sistema
+497,kong_index_84,CODE_BF8119,104318,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr34_LifeBalloon",C,tabela por Kong usada por objeto/sistema
+498,flags_0579,CODE_BF845A,104737,"sistema: CODE_80821A, CODE_809713",G,sinalizador do jogo (vale para os dois)
+499,player_slot_809B9C,CODE_BF8463,104745,"sistema: CODE_80821A, CODE_809713",C,"objeto carregado pelo jogador ($16F5,y)"
+500,kong_index_84,DKC1_NorSpr02_DiddyKong_Main,104784,NorSpr02_DiddyKong,P,codigo do proprio Kong ($84 = ele mesmo)
+501,kong_index_84,DKC1_NorSpr01_DonkeyKong_Main,104789,NorSpr01_DonkeyKong,P,codigo do proprio Kong ($84 = ele mesmo)
+502,kong_index_84,CODE_BF84A8,104791,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+503,flags_0579,CODE_BF85A6,104938,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+504,flags_0579,CODE_BF85A6,104940,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+505,kong_index_84,CODE_BF867E,105020,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+506,kong_index_84,CODE_BF8711,105125,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+507,touch_category_BBA58D,CODE_BF888E,105309,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+508,kong_index_84,CODE_BF88AD,105319,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+509,ridden_0512,CODE_BF88AD,105320,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+510,kong_index_84,CODE_BF8938,105369,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+511,ridden_0512,CODE_BF8938,105371,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+512,kong_index_84,CODE_BF8948,105379,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+513,kong_index_84,CODE_BF89AF,105426,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+514,kong_index_84,CODE_BF89CF,105436,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+515,flags_0579,CODE_BF8AA8,105557,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+516,kong_event_1929,CODE_BF8B47,105650,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+517,kong_index_84,CODE_BF8B47,105651,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+518,kong_index_84,CODE_BF8B97,105669,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+519,kong_index_84,CODE_BF8B97,105675,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+520,kong_index_84,CODE_BF8B97,105679,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+521,kong_index_84,CODE_BF8BE4,105712,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+522,kong_index_84,CODE_BF8C51,105765,sistema: CODE_BF8C51,R,tabela por Kong usada por objeto/sistema
+523,kong_index_84,CODE_BF8CB9,105836,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+524,kong_index_84,CODE_BF8CEF,105859,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+525,kong_index_84,CODE_BF8CEF,105868,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+526,kong_index_84,CODE_BF8D2F,105882,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+527,flags_0579,CODE_BF8D5F,105912,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+528,flags_0579,CODE_BF8D5F,105913,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+529,kong_index_84,CODE_BF8E48,106034,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+530,flags_0579,CODE_BF8E48,106046,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+531,flags_0579,CODE_BF8E48,106047,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+532,current_kong_056F,CODE_BF8E48,106063,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+533,current_kong_056F,CODE_BF8E48,106066,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+534,kong_event_1929,CODE_BF8EAD,106068,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+535,kong_index_84,CODE_BF8EAD,106069,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+536,game_mode_42,CODE_BF8EAD,106081,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",G,modo/jogador atual/controles (Team: lider)
+537,kong_event_1929,CODE_BF8EDC,106094,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+538,flags_0579,CODE_BF8F16,106119,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+539,flags_0579,CODE_BF8F16,106120,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+540,current_kong_056F,CODE_BF8F16,106136,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+541,current_kong_056F,CODE_BF8F16,106139,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+542,kong_event_1929,CODE_BF8F53,106141,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+543,kong_index_84,CODE_BF8F53,106142,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+544,game_mode_42,CODE_BF8F53,106153,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",G,modo/jogador atual/controles (Team: lider)
+545,kong_event_1929,CODE_BF8F7F,106166,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+546,flags_0579,CODE_BF8F97,106171,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+547,flags_0579,CODE_BF8F97,106172,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+548,flags_0579,CODE_BF8FBA,106190,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+549,flags_0579,CODE_BF8FBA,106191,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+550,kong_index_84,CODE_BF905B,106281,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+551,ridden_0512,CODE_BF905B,106282,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+552,kong_index_84,CODE_BF90B3,106315,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+553,ridden_0512,CODE_BF90B3,106316,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+554,touch_category_BBA58D,CODE_BF90C7,106330,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+555,kong_index_84,CODE_BF90C7,106332,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+556,ridden_0512,CODE_BF90C7,106336,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+557,touch_category_BBA58D,CODE_BF90FF,106356,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+558,kong_index_84,CODE_BF90FF,106358,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+559,ridden_0512,CODE_BF90FF,106362,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+560,kong_event_1929,CODE_BF91D1,106458,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+561,ridden_0512,ADDR_BF91DB,106473,sistema: ADDR_BF91DB,R,montaria do jogador
+562,kong_index_84,CODE_BF92C5,106584,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+563,ridden_0512,CODE_BF92C5,106588,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+564,player_slot_809B9C,CODE_BF92E5,106604,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",R,porta: esconde os Kongs e o animal do jogador (passageiro nao)
+565,ridden_0512,CODE_BF92E5,106607,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+566,kong_index_84,CODE_BF9329,106641,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+567,kong_index_84,CODE_BF936E,106673,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+568,kong_event_1929,CODE_BF936E,106684,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+569,flags_0579,CODE_BF936E,106686,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+570,flags_0579,CODE_BF936E,106688,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+571,flags_0579,CODE_BF936E,106689,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+572,current_kong_056F,CODE_BF936E,106690,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+573,current_kong_056F,CODE_BF936E,106693,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+574,flags_0579,CODE_BF93AA,106700,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+575,flags_0579,CODE_BF93AA,106702,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+576,kong_index_84,CODE_BF93FC,106731,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+577,kong_index_84,CODE_BF9492,106807,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+578,ridden_0512,CODE_BF9492,106808,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+579,flags_0579,CODE_BF94B3,106821,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+580,flags_0579,CODE_BF94B3,106823,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+581,flags_0579,CODE_BF9538,106881,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+582,flags_0579,CODE_BF9538,106882,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+583,kong_index_84,CODE_BF9606,106941,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+584,flags_0579,CODE_BF964B,106977,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+585,flags_0579,CODE_BF964B,106979,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+586,kong_index_84,CODE_BF96BB,107028,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+587,ridden_0512,CODE_BF96BB,107029,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+588,kong_index_84,CODE_BF96D3,107045,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+589,ridden_0512,CODE_BF96D3,107048,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+590,kong_index_84,CODE_BF96F8,107059,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+591,flags_0579,CODE_BF96F8,107064,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+592,flags_0579,CODE_BF96F8,107066,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+593,flags_0579,CODE_BF9729,107077,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+594,flags_0579,CODE_BF9729,107079,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+595,kong_index_84,CODE_BF9776,107116,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+596,flags_0579,CODE_BF97F2,107179,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+597,flags_0579,CODE_BF97F2,107180,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+598,kong_index_84,CODE_BF97F2,107181,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+599,touch_category_BBA58D,CODE_BF988A,107244,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+600,kong_index_84,CODE_BF988A,107246,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+601,ridden_0512,CODE_BF988A,107250,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+602,kong_index_84,CODE_BF98AC,107257,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+603,ridden_0512,CODE_BF990A,107306,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+604,kong_event_1929,CODE_BF991C,107313,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+605,kong_event_1929,CODE_BF9AA9,107519,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+606,kong_index_84,CODE_BF9AA9,107520,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+607,kong_index_84,CODE_BF9AFC,107537,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+608,kong_index_84,CODE_BF9AFC,107543,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+609,kong_index_84,CODE_BF9AFC,107547,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+610,flags_0579,CODE_BF9B39,107572,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+611,flags_0579,CODE_BF9B39,107573,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+612,flags_0579,CODE_BF9B66,107592,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+613,flags_0579,CODE_BF9B66,107593,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+614,kong_event_1929,CODE_BF9B9A,107618,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+615,kong_index_84,CODE_BF9BBA,107631,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+616,ridden_0512,CODE_BF9BBA,107632,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+617,flags_0579,CODE_BF9C67,107724,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+618,kong_index_84,CODE_BF9C86,107735,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+619,kong_index_84,CODE_BF9C86,107741,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+620,kong_index_84,CODE_BF9C86,107745,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+621,ridden_0512,CODE_BF9D48,107840,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+622,kong_event_1929,CODE_BF9D65,107853,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+623,flags_0579,CODE_BF9E09,107938,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+624,flags_0579,CODE_BF9E09,107939,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+625,touch_category_BBA58D,CODE_BF9E66,107983,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+626,kong_index_84,CODE_BF9E66,107985,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+627,ridden_0512,CODE_BF9E66,107989,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+628,kong_event_1929,CODE_BF9EAC,108010,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+629,player_slot_809B9C,CODE_BF9EBB,108018,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",L,entrada de bonus: guarda animal e bananas do jogador p/ devolver
+630,ridden_0512,CODE_BF9EBB,108023,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+631,flags_0579,CODE_BF9EBB,108027,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+632,flags_0579,CODE_BF9EBB,108029,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+633,flags_0579,CODE_BF9EBB,108031,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+634,kong_event_1929,CODE_BF9EBB,108036,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+635,kong_event_1929,CODE_BF9F22,108063,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+636,flags_0579,CODE_BF9F31,108075,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+637,flags_0579,CODE_BF9F31,108077,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+638,flags_0579,CODE_BF9F31,108078,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+639,kong_index_84,CODE_BF9FBE,108148,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+640,flags_0579,CODE_BFA076,108249,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+641,flags_0579,CODE_BFA076,108250,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+642,kong_index_84,CODE_BFA0E4,108302,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+643,kong_index_84,CODE_BFA13B,108349,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+644,ridden_0512,CODE_BFA13B,108352,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+645,flags_0579,CODE_BFA184,108389,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+646,kong_index_84,CODE_BFA191,108393,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+647,kong_event_1929,CODE_BFA191,108408,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+648,flags_0579,CODE_BFA191,108414,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+649,flags_0579,CODE_BFA1F1,108436,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+650,flags_0579,CODE_BFA1F1,108440,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+651,flags_0579,CODE_BFA1F1,108441,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+652,kong_index_84,CODE_BFA222,108460,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+653,kong_event_1929,CODE_BFA222,108467,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+654,kong_index_84,CODE_BFA244,108473,"NorSpr38_BarrelCannon, NorSpr51_Minecart",C,tabela por Kong usada por objeto/sistema
+655,kong_index_84,CODE_BFA244,108479,"NorSpr38_BarrelCannon, NorSpr51_Minecart",C,tabela por Kong usada por objeto/sistema
+656,kong_index_84,CODE_BFA244,108482,"NorSpr38_BarrelCannon, NorSpr51_Minecart",C,tabela por Kong usada por objeto/sistema
+657,kong_index_84,CODE_BFA260,108492,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr38_BarrelCannon",C,tabela por Kong usada por objeto/sistema
+658,kong_index_84,CODE_BFA2A0,108525,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+659,ridden_0512,CODE_BFA2A0,108526,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+660,ridden_0512,CODE_BFA2A9,108534,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+661,kong_event_1929,CODE_BFA2A9,108545,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+662,kong_event_1929,CODE_BFA2EB,108563,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+663,kong_index_84,ADDR_BFA376,108616,sistema: ADDR_BFA376,R,tabela por Kong usada por objeto/sistema
+664,kong_index_84,ADDR_BFA376,108621,sistema: ADDR_BFA376,R,tabela por Kong usada por objeto/sistema
+665,kong_index_84,ADDR_BFA376,108625,sistema: ADDR_BFA376,R,tabela por Kong usada por objeto/sistema
+666,flags_0579,CODE_BFA3B4,108655,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+667,kong_index_84,CODE_BFA3B4,108658,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+668,kong_event_1929,CODE_BFA3B4,108673,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+669,kong_event_1929,CODE_BFA427,108710,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+670,kong_index_84,CODE_BFA44A,108721,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+671,kong_index_84,CODE_BFA49A,108765,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+672,kong_index_84,CODE_BFA4B7,108779,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+673,ridden_0512,CODE_BFA4B7,108780,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+674,kong_index_84,CODE_BFA55B,108867,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+675,pads,CODE_BFA625,108983,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr1E_UnknownRollingTire",G,modo/jogador atual/controles (Team: lider)
+676,kong_index_84,CODE_BFA6C9,109074,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+677,ridden_0512,CODE_BFA6C9,109075,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+678,ridden_0512,CODE_BFA6C9,109078,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+679,kong_event_1929,CODE_BFA6E4,109088,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+680,kong_event_1929,CODE_BFA6FD,109097,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+681,kong_index_84,CODE_BFA712,109104,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+682,touch_category_BBA58D,CODE_BFA773,109152,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+683,kong_event_1929,CODE_BFA7C7,109195,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+684,kong_index_84,CODE_BFA822,109248,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+685,kong_index_84,CODE_BFA86A,109263,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+686,pads,CODE_BFA873,109275,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",G,modo/jogador atual/controles (Team: lider)
+687,kong_index_84,CODE_BFA957,109403,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+688,kong_index_84,CODE_BFA957,109417,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+689,kong_index_84,CODE_BFA9B3,109441,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+690,kong_index_84,CODE_BFA9BF,109450,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+691,kong_index_84,CODE_BFAA17,109510,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+692,kong_index_84,CODE_BFAAB5,109601,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+693,kong_index_84,CODE_BFAF38,110238,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+694,kong_index_84,CODE_BFAF69,110273,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+695,kong_index_84,CODE_BFB167,110548,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+696,game_mode_42,CODE_BFB27C,110732,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",G,modo/jogador atual/controles (Team: lider)
+697,current_kong_056F,CODE_BFB27C,110735,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+698,player_number_44,CODE_BFB27C,110738,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",G,modo/jogador atual/controles (Team: lider)
+699,kong_index_84,CODE_BFB27C,110742,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+700,ridden_0512,CODE_BFB27C,110743,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+701,player_number_44,CODE_BFB2A4,110748,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",G,modo/jogador atual/controles (Team: lider)
+702,player_number_44,CODE_BFB2A4,110751,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",G,modo/jogador atual/controles (Team: lider)
+703,player_number_44,CODE_BFB2C7,110764,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",G,modo/jogador atual/controles (Team: lider)
+704,kong_index_84,CODE_BFB2C7,110771,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+705,kong_index_84,CODE_BFB456,110996,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+706,kong_index_84,CODE_BFB456,111011,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+707,kong_index_84,CODE_BFB486,111023,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+708,ridden_0512,CODE_BFB486,111026,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+709,kong_index_84,CODE_BFB4E3,111059,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+710,ridden_0512,CODE_BFB538,111105,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+711,ridden_0512,CODE_BFB573,111142,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+712,kong_index_84,CODE_BFB61D,111247,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+713,kong_index_84,CODE_BFB64B,111272,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+714,kong_index_84,CODE_BFB68C,111302,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+715,ridden_0512,CODE_BFB68C,111303,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+716,kong_index_84,CODE_BFB72C,111393,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+717,kong_index_84,CODE_BFB75A,111418,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+718,kong_index_84,CODE_BFB79B,111448,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+719,ridden_0512,CODE_BFB79B,111449,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+720,kong_index_84,CODE_BFB7D0,111477,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+721,kong_index_84,CODE_BFB849,111539,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+722,ridden_0512,CODE_BFB849,111540,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+723,ridden_0512,CODE_BFB853,111547,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+724,kong_index_84,CODE_BFB8E5,111605,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+725,kong_index_84,CODE_BFB8F7,111618,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+726,kong_index_84,CODE_BFB94F,111660,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+727,kong_index_84,CODE_BFB96E,111679,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+728,ridden_0512,CODE_BFB96E,111686,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+729,ridden_0512,CODE_BFB9B2,111708,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+730,flags_0579,CODE_BFB9DB,111728,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+731,flags_0579,CODE_BFB9DB,111730,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+732,kong_index_84,CODE_BFB9DB,111731,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+733,flags_0579,CODE_BFB9DB,111734,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+734,flags_0579,CODE_BFB9DB,111736,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+735,kong_index_84,CODE_BFB9DB,111738,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+736,kong_index_84,CODE_BFBA08,111747,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+737,kong_index_84,CODE_BFBA21,111758,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+738,kong_index_84,CODE_BFBA88,111810,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+739,kong_index_84,CODE_BFBA88,111824,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+740,kong_index_84,CODE_BFBB0F,111878,NorSpr51_Minecart,C,tabela por Kong usada por objeto/sistema
+741,kong_index_84,CODE_BFBB0F,111879,NorSpr51_Minecart,C,tabela por Kong usada por objeto/sistema
+742,kong_index_84,CODE_BFBB0F,111896,NorSpr51_Minecart,C,tabela por Kong usada por objeto/sistema
+743,flags_0579,CODE_BFBB0F,111912,NorSpr51_Minecart,G,sinalizador do jogo (vale para os dois)
+744,kong_index_84,CODE_BFBB85,111924,NorSpr51_Minecart,C,tabela por Kong usada por objeto/sistema
+745,kong_index_84,CODE_BFBBC4,111952,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+746,ridden_0512,CODE_BFBBC4,111953,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+747,kong_index_84,CODE_BFBC06,111991,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+748,kong_index_84,CODE_BFBC5B,112041,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+749,ridden_0512,CODE_BFBC5B,112042,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+750,kong_index_84,CODE_BFBC6B,112051,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+751,ridden_0512,CODE_BFBC6B,112052,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+752,kong_index_84,CODE_BFBC7D,112064,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+753,kong_index_84,CODE_BFBC9A,112092,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+754,kong_index_84,CODE_BFBC9A,112103,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+755,kong_index_84,CODE_BFBCD7,112115,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+756,kong_index_84,CODE_BFBD3A,112171,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+757,kong_index_84,CODE_BFBDD5,112246,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+758,kong_index_84,CODE_BFBDE7,112259,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+759,kong_index_84,CODE_BFBE15,112282,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+760,ridden_0512,CODE_BFBE15,112283,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+761,kong_index_84,CODE_BFBE39,112306,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+762,touch_category_BBA58D,CODE_BFBE39,112313,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+763,kong_index_84,CODE_BFBE5F,112323,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+764,kong_index_84,CODE_BFBE5F,112346,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+765,kong_index_84,CODE_BFBEB9,112356,sistema: CODE_BFBEB9,R,tabela por Kong usada por objeto/sistema
+766,kong_index_84,CODE_BFBEC5,112363,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr51_Minecart",C,tabela por Kong usada por objeto/sistema
+767,kong_index_84,CODE_BFBED1,112370,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+768,flags_0579,CODE_BFBF08,112416,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+769,flags_0579,CODE_BFBF08,112420,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+770,flags_0579,CODE_BFBF08,112421,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+771,kong_event_1929,CODE_BFBF6B,112480,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+772,kong_event_1929,CODE_BFBF7C,112486,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+773,flags_0579,CODE_BFBF99,112503,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+774,kong_index_84,CODE_BFBFAD,112517,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+775,ridden_0512,CODE_BFBFAD,112518,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+776,kong_event_1929,CODE_BFBFF1,112555,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+777,current_kong_056F,CODE_BFBFF1,112558,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+778,current_kong_056F,CODE_BFC014,112567,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+779,current_kong_056F,CODE_BFC027,112576,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+780,kong_index_84,CODE_BFC04F,112600,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+781,kong_index_84,CODE_BFC04F,112606,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+782,kong_index_84,CODE_BFC04F,112609,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+783,current_kong_056F,CODE_BFC075,112615,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+784,kong_event_1929,CODE_BFC102,112688,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+785,current_kong_056F,CODE_BFC16E,112734,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+786,current_kong_056F,CODE_BFC17C,112743,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+787,current_kong_056F,CODE_BFC183,112748,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+788,kong_index_84,CODE_BFC1B9,112782,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+789,player_slot_809B9C,CODE_BFC341,112999,"sistema: CODE_80821A, CODE_809713",B,rotina por quadro do sistema no jogador
+790,kong_index_84,CODE_BFC341,113004,"sistema: CODE_80821A, CODE_809713",R,tabela por Kong usada por objeto/sistema
+791,flags_0579,CODE_BFC377,113025,"sistema: CODE_80821A, CODE_809713",G,sinalizador do jogo (vale para os dois)
+792,flags_0579,CODE_BFC377,113028,"sistema: CODE_80821A, CODE_809713",G,sinalizador do jogo (vale para os dois)
+793,flags_0579,CODE_BFC377,113029,"sistema: CODE_80821A, CODE_809713",G,sinalizador do jogo (vale para os dois)
+794,kong_index_84,CODE_BFC386,113033,"sistema: CODE_80821A, CODE_809713",R,tabela por Kong usada por objeto/sistema
+795,kong_index_84,CODE_BFC3B6,113064,"sistema: CODE_80821A, CODE_809713",R,tabela por Kong usada por objeto/sistema
+796,kong_index_84,CODE_BFC42D,113117,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+797,kong_index_84,CODE_BFC501,113220,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+798,touch_active_BBA574,CODE_BFC6F2,113485,"NorSpr19_Zinger, NorSpr20_Mincer, NorSpr53_Chomps",T,toque so no Kong ativo -> os dois (ja feito)
+799,touch_active_BBA574,CODE_BFC713,113506,"NorSpr05_Kritter, NorSpr06_Klump, NorSpr29_Slippa",T,toque so no Kong ativo -> os dois (ja feito)
+800,touch_active_BBA574,CODE_BFC76A,113559,"NorSpr1A_Klaptrap, NorSpr70_CurrentWorldBoss",T,toque so no Kong ativo -> os dois (ja feito)
+801,flags_0579,CODE_BFC9CA,113884,NorSpr27_TNTBarrel,G,sinalizador do jogo (vale para os dois)
+802,flags_0579,CODE_BFC9CA,113885,NorSpr27_TNTBarrel,G,sinalizador do jogo (vale para os dois)
+803,flags_0579,CODE_BFC9CA,113886,NorSpr27_TNTBarrel,G,sinalizador do jogo (vale para os dois)
+804,current_kong_056F,CODE_BFC9DC,113894,NorSpr27_TNTBarrel,L,Kong atual = lider
+805,kong_index_84,CODE_BFC9DC,113902,NorSpr27_TNTBarrel,C,tabela por Kong usada por objeto/sistema
+806,flags_0579,CODE_BFC9DC,113914,NorSpr27_TNTBarrel,G,sinalizador do jogo (vale para os dois)
+807,flags_0579,CODE_BFC9DC,113915,NorSpr27_TNTBarrel,G,sinalizador do jogo (vale para os dois)
+808,kong_index_84,CODE_BFC9DC,113922,NorSpr27_TNTBarrel,C,tabela por Kong usada por objeto/sistema
+809,kong_event_1929,CODE_BFC9DC,113929,NorSpr27_TNTBarrel,G,sinalizador do jogo (vale para os dois)
+810,player_slot_809B9C,CODE_BFC9DC,113930,NorSpr27_TNTBarrel,G,barril DK: som do Kong liberado
+811,kong_index_84,CODE_BFCA46,113944,NorSpr27_TNTBarrel,C,tabela por Kong usada por objeto/sistema
+812,player_slot_809B9C,CODE_BFCADA,114018,NorSpr0C_Enguarde,A,Enguarde some com o jogador longe
+813,touch_active_BBA574,CODE_BFCC24,114203,NorSpr0C_Enguarde,T,toque so no Kong ativo -> os dois (ja feito)
+814,kong_index_84,CODE_BFCC33,114216,NorSpr0C_Enguarde,C,tabela por Kong usada por objeto/sistema
+815,ridden_0512,CODE_BFCC33,114218,NorSpr0C_Enguarde,C,montaria do jogador
+816,ridden_0512,CODE_BFCC33,114224,NorSpr0C_Enguarde,C,montaria do jogador
+817,flags_0579,CODE_BFCE73,114479,NorSpr27_TNTBarrel,G,sinalizador do jogo (vale para os dois)
+818,flags_0579,CODE_BFCE73,114480,NorSpr27_TNTBarrel,G,sinalizador do jogo (vale para os dois)
+819,pads,CODE_BFCEDD,114541,NorSpr27_TNTBarrel,G,modo/jogador atual/controles (Team: lider)
+820,touch_active_BBA574,CODE_BFCFC3,114660,NorSpr27_TNTBarrel,T,toque so no Kong ativo -> os dois (ja feito)
+821,ridden_0512,CODE_BFCFC3,114672,NorSpr27_TNTBarrel,C,montaria do jogador
+822,pads,CODE_BFD06E,114734,NorSpr27_TNTBarrel,G,modo/jogador atual/controles (Team: lider)
+823,touch_active_BBA574,CODE_BFD0A6,114764,NorSpr27_TNTBarrel,T,toque so no Kong ativo -> os dois (ja feito)
+824,ridden_0512,CODE_BFD0A6,114769,NorSpr27_TNTBarrel,C,montaria do jogador
+825,touch_active_BBA574,CODE_BFD10C,114816,NorSpr27_TNTBarrel,T,toque so no Kong ativo -> os dois (ja feito)
+826,touch_active_BBA574,CODE_BFD164,114876,NorSpr27_TNTBarrel,T,toque so no Kong ativo -> os dois (ja feito)
+827,touch_category_BBA58D,CODE_BFD2C5,115042,"NorSpr27_TNTBarrel, NorSpr4A_CheckpointBarrel",T,toque por categoria (ja pega os dois)
+828,player_slot_809B9C,CODE_BFD2D6,115055,sistema: CODE_BFD2D6,C,atingido e o jogador?
+829,touch_active_BBA574,CODE_BFD30D,115086,NorSpr27_TNTBarrel,T,toque so no Kong ativo -> os dois (ja feito)
+830,touch_active_BBA574,CODE_BFD3BE,115197,NorSpr18_AnimalBuddyBox,T,toque so no Kong ativo -> os dois (ja feito)
+831,player_slot_809B9C,CODE_BFD3F3,115218,NorSpr18_AnimalBuddyBox,C,caixa do animal: jogador por cima
+832,touch_active_BBA574,CODE_BFD67F,115584,NorSpr16_KongLetter,T,toque so no Kong ativo -> os dois (ja feito)
+833,kong_event_1929,CODE_BFD67F,115586,NorSpr16_KongLetter,G,sinalizador do jogo (vale para os dois)
+834,touch_active_BBA574,CODE_BFD814,115778,NorSpr15_BananaBunch,T,toque so no Kong ativo -> os dois (ja feito)
+835,player_slot_809B9C,DKC1_NorSpr11_UnknownSprite_Main,115902,NorSpr11_UnknownSprite,R,fim de fase: jogador passou (estado $1B)
+836,bonus_return_1705,DKC1_NorSpr11_UnknownSprite_Main,115912,NorSpr11_UnknownSprite,L,destino de volta por jogador (compartilhado)
+837,player_slot_809B9C,DKC1_NorSpr12_UnknownSprite_Main,115925,NorSpr12_UnknownSprite,R,saida para carrinho: jogador passou
+838,player_slot_809B9C,CODE_BFD950,115958,NorSpr12_UnknownSprite,R,fim de fase: destino
+839,bonus_return_1705,CODE_BFD950,115963,NorSpr12_UnknownSprite,L,destino de volta por jogador (compartilhado)
+840,player_slot_809B9C,DKC1_NorSpr13_UnknownSprite_Main,115971,NorSpr13_UnknownSprite,R,gatilho de fim de fase
+841,bonus_return_1705,DKC1_NorSpr13_UnknownSprite_Main,116004,NorSpr13_UnknownSprite,L,destino de volta por jogador (compartilhado)
+842,touch_active_BBA574,CODE_BFDA31,116073,NorSpr10_NeckyNut,T,toque so no Kong ativo -> os dois (ja feito)
+843,pads,CODE_BFDA6F,116100,NorSpr10_NeckyNut,G,modo/jogador atual/controles (Team: lider)
+844,touch_other_BBA6xx,CODE_BFDC08,116377,"NorSpr1E_UnknownRollingTire, NorSpr1F_FloatingTire, NorSpr21_UnknownSprite",T,"toque so no Kong ativo (pneus, tambores...) -> os dois"
+845,flags_0579,CODE_BFDD04,116515,NorSpr1F_FloatingTire,G,sinalizador do jogo (vale para os dois)
+846,flags_0579,CODE_BFDD04,116517,NorSpr1F_FloatingTire,G,sinalizador do jogo (vale para os dois)
+847,flags_0579,CODE_BFE050,116965,NorSpr1E_UnknownRollingTire,G,sinalizador do jogo (vale para os dois)
+848,flags_0579,CODE_BFE050,116967,NorSpr1E_UnknownRollingTire,G,sinalizador do jogo (vale para os dois)
+849,player_slot_809B9C,CODE_BFE15E,117114,NorSpr2C_ItemCache,C,item escondido: tapa no chao do DK
+850,touch_category_BBA58D,CODE_BFE2E5,117271,NorSpr35_ExplosionSpawner,T,toque por categoria (ja pega os dois)
+851,flags_0579,CODE_BFE3EC,117416,NorSpr38_BarrelCannon,G,sinalizador do jogo (vale para os dois)
+852,flags_0579,CODE_BFE415,117421,NorSpr38_BarrelCannon,G,sinalizador do jogo (vale para os dois)
+853,flags_0579,CODE_BFE41B,117424,NorSpr38_BarrelCannon,G,sinalizador do jogo (vale para os dois)
+854,player_slot_809B9C,CODE_BFE54F,117570,NorSpr38_BarrelCannon,C,barril-canhao: flag do jogador
+855,kong_event_1929,CODE_BFE54F,117583,NorSpr38_BarrelCannon,G,sinalizador do jogo (vale para os dois)
+856,kong_event_1929,CODE_BFE54F,117585,NorSpr38_BarrelCannon,G,sinalizador do jogo (vale para os dois)
+857,bonus_return_1705,CODE_BFE57A,117602,NorSpr38_BarrelCannon,L,destino de volta por jogador (compartilhado)
+858,kong_index_84,CODE_BFE5D9,117649,NorSpr38_BarrelCannon,C,tabela por Kong usada por objeto/sistema
+859,kong_event_1929,CODE_BFE73A,117829,NorSpr38_BarrelCannon,G,sinalizador do jogo (vale para os dois)
+860,current_kong_056F,CODE_BFE7B0,117884,NorSpr38_BarrelCannon,L,Kong atual = lider
+861,current_kong_056F,CODE_BFE7C4,117893,NorSpr38_BarrelCannon,L,Kong atual = lider
+862,kong_index_84,CODE_BFE82F,117958,NorSpr38_BarrelCannon,C,tabela por Kong usada por objeto/sistema
+863,ridden_0512,CODE_BFE82F,117959,NorSpr38_BarrelCannon,C,montaria do jogador
+864,kong_index_84,CODE_BFE849,117977,NorSpr38_BarrelCannon,C,tabela por Kong usada por objeto/sistema
+865,kong_index_84,CODE_BFE849,117985,NorSpr38_BarrelCannon,C,tabela por Kong usada por objeto/sistema
+866,kong_index_84,CODE_BFE849,117986,NorSpr38_BarrelCannon,C,tabela por Kong usada por objeto/sistema
+867,ridden_0512,CODE_BFE849,117987,NorSpr38_BarrelCannon,C,montaria do jogador
+868,touch_active_BBA574,CODE_BFE9BC,118159,NorSpr38_BarrelCannon,T,toque so no Kong ativo -> os dois (ja feito)
+869,touch_other_BBA6xx,CODE_BFEAD9,118326,NorSpr47_UnknownSprite,T,"toque so no Kong ativo (pneus, tambores...) -> os dois"
+870,touch_other_BBA6xx,CODE_BFEB2A,118364,NorSpr39_SpritePlatform,T,varredura de plataforma (ja pega os dois)
+871,touch_other_BBA6xx,CODE_BFEB3F,118372,NorSpr39_SpritePlatform,T,varredura de plataforma (ja pega os dois)
+872,flags_0579,CODE_BFEBAB,118435,"NorSpr39_SpritePlatform, NorSpr47_UnknownSprite, NorSpr58_LineGuidePlatform",G,sinalizador do jogo (vale para os dois)
+873,flags_0579,CODE_BFEBAB,118437,"NorSpr39_SpritePlatform, NorSpr47_UnknownSprite, NorSpr58_LineGuidePlatform",G,sinalizador do jogo (vale para os dois)
+874,touch_other_BBA6xx,CODE_BFEBE2,118458,"NorSpr39_SpritePlatform, NorSpr58_LineGuidePlatform",T,varredura de plataforma (ja pega os dois)
+875,touch_other_BBA6xx,CODE_BFEC1A,118480,"NorSpr39_SpritePlatform, NorSpr58_LineGuidePlatform",T,varredura de plataforma (ja pega os dois)
+876,player_slot_809B9C,CODE_BFEC9B,118557,NorSpr31_SwingingRope,C,corda balancante: jogador pendurado
+877,player_slot_809B9C,CODE_BFED03,118608,NorSpr31_SwingingRope,C,corda balancante
+878,player_slot_809B9C,CODE_BFEF0C,118894,NorSpr30_VerticalRope,C,corda vertical
+879,flags_0579,CODE_BFF405,119573,"NorSpr04_UnknownSprite, NorSpr05_Kritter, NorSpr06_Klump",G,sinalizador do jogo (vale para os dois)
+880,flags_0579,CODE_BFF9EC,120385,"NorSpr04_UnknownSprite, NorSpr05_Kritter, NorSpr06_Klump",G,sinalizador do jogo (vale para os dois)
+881,pads,CODE_BFFB16,120565,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong, NorSpr04_UnknownSprite",G,modo/jogador atual/controles (Team: lider)
+882,flags_0579,CODE_BFFD2B,120840,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+883,flags_0579,CODE_BFFD34,120847,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+884,flags_0579,CODE_BFFD34,120848,"NorSpr01_DonkeyKong, NorSpr02_DiddyKong",P,codigo do proprio Kong ($84 = ele mesmo)
+885,kong_index_84,CODE_BFFD47,120857,sistema: CODE_BFFD47,R,tabela por Kong usada por objeto/sistema

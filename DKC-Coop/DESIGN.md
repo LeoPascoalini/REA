@@ -311,3 +311,387 @@ Regressão sem co-op: `frame_sha256` inalterado.
 - Pendente: carrinho de mina (no original os dois Kongs vão no mesmo carrinho — conferir), Enguarde,
   Squawks.
 - Regressão sem co-op: `frame_sha256` inalterado; letras e "em pé no outro" iguais.
+
+### 2026-10-15 — Montaria: pose de montado, troca de tela, travamento na entrada de área (8º teste)
+
+- **Pose do passageiro**: ao montar, o slot do Kong piloto passa a mostrar o *animal* (poses
+  $25xx–$27xx) e o slot do animal mostra o *Kong montado* (DK $058C…, Diddy $0DB0…; scripts
+  BE:BE73…). O passageiro usa a pose de montado parado do próprio Kong (DK $058C / Diddy $0DB0),
+  com o temporizador da pose segurado para a animação dele não trocar a pose; ao apertar B o assento
+  é liberado antes, para a animação de pulo (que dá o impulso) rodar. Outras poses de montaria
+  escritas fora do script não aparecem (os gráficos não vêm junto) — por isso só a parada.
+- Assento a 30 px atrás do piloto: a 14 px o corpo do piloto, que se inclina para trás no pulo do
+  animal, cobria o passageiro. Sentado ele fica no estado de chão (o de ar não tem pulo).
+- **Troca de tela montado** (ex.: o Rambi arromba a entrada da caverna escondida da Jungle
+  Hijinxs): o assento agora é persistente — só termina quando o passageiro pula para fora ou o
+  piloto deixa de montar (`$0512`=0). Antes, os ids zerados da tabela de sprites durante a troca
+  pareciam "animal perdido". Depois de pular para fora há 45 quadros de carência antes de poder
+  sentar de novo (pulando para frente ele caía de volta nas costas do animal).
+- **Travamento achado no caminho**: ao entrar numa área nova o Kong entra andando (estado $46) até
+  `$1375`; a trava "manter na tela" do co-op o segurava em câmera+16 e o jogo parava ali (também
+  aconteceu sem animal). A trava agora só age nos estados de jogo do Kong.
+- Testes: `recipes/coop_mount_test.dks` (sentado, pulo do Rambi, descer pulando) e
+  `recipes/coop_mount_travel.dks` (Rambi entra na caverna com o Diddy sentado; depois da troca de
+  tela ele volta ao assento no quadro seguinte à entrada). Regressão sem co-op inalterada.
+- Widescreen (pergunta do usuário): o port base tem widescreen só de apresentação (342×224 ou
+  398×224, `DKC1_WIDESCREEN`/`DKC1_WIDESCREEN_EDGE`); está desligado no launcher porque os ajustes
+  foram feitos para a v1.0. Teste rápido na v1.2 (Jungle Hijinxs, co-op): imagem 342×224 correta.
+
+### 2026-10-15 — Volta ao mapa na caverna com o Diddy pilotando; câmera; dano sem corrida (9º teste)
+
+- **Volta ao mapa**: reproduzido (`recipes/coop_mount_diddy_travel.dks`: Diddy monta o Rambi, DK
+  pula na garupa, o J2 leva o Rambi à caverna escondida → tela escurece → mapa). Causa: a entrada
+  (B6:C599/C573) pergunta "qual é o jogador?" por `Player_GetIndexOffset_Far` e grava o destino em
+  `$1705,índice` desse Kong; o co-op respondia "o Kong mais perto do objeto" para o banco B6, então o
+  destino foi gravado no DK (garupa) e o jogo carregou o do Kong ativo (vazio) → mapa. Podia
+  acontecer em qualquer porta. A função voltou a responder como o cartucho (o Kong ativo); toques
+  em itens/letras já valem para os dois pela `CODE_BBA574`.
+- Também: o Kong que **monta** passa a ser o Kong ativo (como no original, só o ativo monta; mesma
+  passagem usada no dano do secundário).
+- O Kong montado não usa mais a regra "em pé na cabeça do outro" (o Rambi inteiro ficava apoiado
+  na cabeça do DK e o DK não conseguia subir na garupa).
+- **Garupa**: DK atrás do Diddy a 16 px (o Diddy atrás do DK continua a 30 px); o passageiro é
+  desenhado na camada $E0, entre o animal ($DC) e o piloto ($E4), e volta à camada original ao
+  descer.
+- **Câmera com os dois montados**: a câmera original do jogo no piloto (com a antecipação da
+  corrida) em vez do ponto médio — piloto a ~85 px da esquerda correndo para a direita.
+- **Dano sem corrida e sem espera** (pedido do usuário): quando um Kong é atingido o cartucho põe o
+  parceiro em $0E→$0A (corre até o lugar) e, no modo Team, espera o botão ($53). No co-op o parceiro
+  sai do $0E direto para o estado de chão onde está, vira o Kong ativo, `$0579` bit 0 (dupla em
+  jogo) e `$1929` são limpos como no fim da troca original. O Kong atingido foge como antes.
+  Testes `coop_out_test` (DK atingido: o Diddy continua andando no mesmo quadro) e
+  `coop_p2hit_test` (Diddy atingido: o DK assume no mesmo quadro).
+- Regressão sem co-op inalterada; letras, "em pé no outro" e descer da montaria iguais.
+
+### 2026-10-16 — Pausa "pronto?" quando um Kong sai do barril DK (pedido do usuário)
+
+- Quando um Kong que estava fora (estado $0C: atingido, ou ainda não liberado no começo da fase)
+  volta ao jogo, ele saiu de um barril DK: o co-op pausa o jogo com a pausa do próprio cartucho
+  (Start injetado; `$0579` bit 6 = pausado) e só despausa quando o jogador dono desse Kong aperta um
+  botão (B, Y, A, X, L, R ou Start). Durante a espera o Start dos jogadores é ignorado (o outro
+  jogador não despausa) e o Select fica bloqueado (na pausa ele sai de uma fase já terminada). O
+  título da janela mostra "co-op: Jn, aperte um botao quando estiver pronto".
+- Cuidado achado: na pausa cada Start reinicia uma trava (`$1E33`, 80:9AFF; ~32 quadros ao pausar,
+  16 depois) e só um Start com ela vencida despausa. O co-op injeta o Start de despausar quando
+  `$1E33` <= 0.
+- Teste `recipes/coop_ready_test.dks`: o Diddy sai do barril → pausado; J1 aperta B e Start → continua
+  pausado; J2 aperta B → volta a rodar e os dois andam. As outras rotas de teste ganharam o "pronto"
+  do J2 depois do barril (`wait 0579 == 0040 mask 0040`) e passam como antes.
+- Regressão sem co-op inalterada.
+
+### 2026-10-16 — Modo 1 jogador, Kong piscando na espera, pausa indevida na troca de tela (10º teste)
+
+- **Co-op só no "2 Player Team"**: o co-op age apenas com `$42` = 1 (modo Team escolhido no menu do
+  jogo). No "1 Player" (e no "2 Player Contest") o jogo fica como o original. O título da janela
+  mostra "co-op: so no modo 2 Player Team" fora desse modo. As rotas de teste jogam o 1 Player e
+  usam `DKC1_COOP_ANY_MODE=1` (só para teste). Verificado: sem a variável, a rota de 1 jogador
+  segue com o Diddy como seguidor ($05).
+- **Kong piscando na espera do barril DK**: durante a pausa nada redesenha a lista de sprites
+  (`$0200`, 4 bytes por sprite); o co-op esconde/mostra a cada 8 quadros as entradas do Kong que
+  saiu (identificadas pelos gráficos dele — tiles a partir do byte baixo de `$0C69,slot` — paleta e
+  posição X). O Kong não desenha durante a própria atualização (o jogo desenha tudo depois, ordenado
+  por camada), por isso a identificação é pelo conteúdo.
+- **Pausa indevida na troca de tela**: a detecção "saiu do barril" usava qualquer saída do estado
+  $0C, mas o $0C também esconde o parceiro em portas/trocas de tela (B6:9F36). O barril DK libera o
+  Kong no estado $23 (BF:C9DC); só a passagem $0C → $23 dispara a pausa. Viagem montada até a
+  caverna: nenhuma pausa.
+- Regressão sem co-op inalterada; bateria (letras, em pé, dano, pronto, montaria) igual.
+
+### 2026-10-16 — Saída de bônus voltando ao início da fase (11º teste)
+
+- Relato: Diddy pilotando com o DK na garupa entrou na "segunda caverna"; ao terminar o bônus
+  (errando) todos voltaram ao início da fase, DK fora da montaria e "bugado". Não reproduzido (a
+  rota cega não chega a esse bônus); a caverna do Rambi (retorno por `$0565`) funciona nos modos
+  1 Player e Team, montado, com volta ao ponto certo e remontagem.
+- Causas plausíveis corrigidas: (1) bônus que guardam o retorno por Kong (`$1705` DK / `$1707`
+  Diddy, B6:C573) são lidos pelo Kong ativo na saída (B8:8383) — se o ativo mudou, o outro índice
+  pode estar vazio → início da fase. No co-op os dois índices passam a ser iguais (o que o jogo grava
+  num é copiado no outro). (2) Ao sair do assento por qualquer motivo (perda do animal, recarga da
+  fase) a camada de desenho e a animação do passageiro (temporizador de pose segurado) são
+  restaurados — antes só no pulo para fora.
+- Auxílio de teste `DKC1_COOP_TEST_TEAM=<quadro>`: joga as rotas no modo Team (`$42`=1). Bateria no
+  modo Team: igual ao 1 Player.
+- Launcher com o gravador de reprodução ligado (`DKC1_FLIGHT_RECORDER=1`, pasta `repro`): F9 salva
+  as últimas entradas, estados e memória para diagnóstico.
+- Regressão sem co-op inalterada.
+
+### 2026-10-19 — Segunda caverna (bônus dos 3 barris) da Jungle Hijinxs (12º teste)
+
+- Rota `recipes/coop_bonus2_test.dks` (modo Team via `DKC1_COOP_TEST_TEAM`): Diddy pilota o Rambi
+  com o DK na garupa, passa pela 1ª caverna, sai, desce à esquerda e volta correndo para a direita:
+  a 2ª entrada fica à direita (estados $1F/$20/$24 em x≈$10B1) e leva à sala dos 3 barris
+  (câmera $5D60).
+- **Achado**: na entrada da sala o parceiro entra *de dentro da parede* (tronco à esquerda) como
+  seguidor ($32 → $02), andando pelo caminho do líder. O co-op o transformava em jogador no
+  mesmo quadro em que era liberado, ainda dentro da parede: a colisão o jogava no estado de
+  passagem estreita ($27) e para fora da sala, no alto (y $FF) — o "DK bugado". Fora dos limites,
+  ao cair conta como queda no buraco: perde-se a vida e a fase recomeça do início (o sintoma
+  relatado). Correção: depois de uma troca de área (tabela de sprites zerada) o parceiro que entra
+  andando continua seguidor por 30 quadros antes do jogador assumir (não vale quando o parceiro
+  estava ausente, $0C — barril DK). O contexto salvo do Kong secundário também é refeito numa troca
+  de área. Verificado: o DK entra atrás do Diddy e fica no chão da sala (y $2F).
+- O destino de volta deste bônus é `$0565` (= $6E, global). Na rota o erro na combinação faz os
+  barris voltarem a girar (nova tentativa); a saída do bônus não foi alcançada na rota automática.
+- Rotas antigas com os mesmos quadros de antes; regressão sem co-op inalterada.
+
+### 2026-10-19 — Mapa completo do "jogador" e regras do usuário (etapas 1 e 2)
+
+- `COOP_MAP.md` + `COOP_MAP_sites.csv` (885 pontos do jogo original que dependem do jogador,
+  classificados T/A/C/L/R/B/P/G; scripts em `tools/coopmap/`). Regras decididas pelo usuário:
+  troca de tela é suprema (líder + puxa o outro); interações superficiais são individuais;
+  carrinho de mina é um para os dois (o primeiro dirige); montarias seletivas.
+- **Etapa 1 — troca de tela com líder**: estados de transição ($1B/$1D/$1F/$20/$24/$3C/$3D/$4F/$51)
+  — o Kong que entra num deles vira o líder antes da sequência (troca de contexto + `$056F`), o
+  outro, se livre, volta a ser o seguidor do jogo original ($02) e o co-op fica pausado até a área
+  nova (espera de seguidor de 30 quadros já existente).
+- **Etapa 2 — cada um por si**: `Player_GetIndexOffset` ($80:9B9C) responde conforme quem
+  perguntou, pela pilha de nomes do recompilador (`g_recomp_stack`): as 31 funções de mira,
+  proximidade e ação no jogador (cordas, barris-canhão, plataformas-guia, caixa de animal, tapa no
+  chão, inimigos e chefes) recebem o Kong mais próximo do objeto; o resto (câmera, portas,
+  destinos, carrinho) recebe o líder. Tabela gerada `runner/dkc1_coop_callers.h`
+  (`tools/coopmap/callers.py`). O toque "só no ativo" `BBA64A` (pneus, tambores, barris de
+  inimigos) agora aceita os dois, como o `BBA574`.
+- Bateria `DKC1Recomp/coop_battery.sh` (10 rotas + regressão): todas iguais às de antes; respostas
+  "mais próximo" ~1800 por rota (inimigos mirando). Regressão sem co-op inalterada.
+- Não testado em rota (as rotas não chegam lá): cordas (Ropey Rampage), barris-canhão (Barrel
+  Cannon Canyon), pneus, carrinho de mina (Mine Cart Carnage). Carrinho: falta a regra "o
+  primeiro que entra dirige" quando o secundário embarca primeiro.
+
+### 2026-10-20 — Bônus dos 3 barris voltava ao início da fase (causa encontrada)
+
+- Reproduzido (`recipes/coop_bonus2_test.dks`, modo Team): parar dois barris com animais
+  diferentes faz os barris explodirem (erro) e o bônus termina. Comparação com o original (auxílio
+  `DKC1_COOP_TEST_SOLO_FROM=<quadro>`: volta ao jogo de 1 jogador a partir do quadro): com o
+  original desde antes da entrada, a saída leva a x $10E4 (logo depois da caverna) com o Diddy no
+  Rambi; com co-op, ia ao começo da fase. A entrada grava o destino certo (`$0565` = $6E =
+  `JungleHijinxs_ExitBonus2`) nos dois casos.
+- Causa: `$1E2B` é o **pedido de fim de sequência** (fim de bônus, fichas de animal, banana gigante
+  do fim de fase, fim das plataformas-guia, chefe), lido pelo código do Kong em 17 estados
+  (BF:876C): o primeiro Kong que o lê faz o fim (pose $11/$55/$4E, contagem, saída) e o apaga. No
+  original só o líder lê (o seguidor não passa por ali) e o seguidor é escondido ($0C). No co-op o
+  DK, jogador, lia primeiro e fazia o fim "do jogador" ($11), terminando como morte → vida perdida →
+  fase do início.
+- Correção: com um pedido de fim pendente, o Kong que não é o líder vira seguidor do jogo original
+  (puxado junto) e o pedido fica escondido durante a atualização dele; o co-op fica pausado até o
+  fim. Resultado: igual ao original — DK escondido, Diddy na pose de derrota, volta a x $10E4.
+  Vale também para o acerto e para os outros fins de sequência.
+- Bateria (`coop_battery.sh`): tudo igual; o bônus agora chega à volta na fase. Regressão sem
+  co-op inalterada.
+
+### 2026-10-20 — Cordas (nenhum dos dois agarrava)
+
+- Rota nova até a Ropey Rampage (`recipes/coop_rope_test.dks`, `coop_rope_dk_test.dks`) com
+  auxílios de teste: `DKC1_COOP_TEST_WARP=0C` (quando o mapa inicia a Jungle Hijinxs, inicia a
+  entrada $0C) e `DKC1_COOP_TEST_GIVE_PARTNER=<quadro>` (liberta o parceiro ao lado do líder como
+  o barril DK faz, BF:C9DC). Reproduzido: sozinho o DK agarrava a corda (x $1A41); em co-op
+  nenhum dos dois.
+- Causa: o estado de corda do jogo é global de um jogador — `$1AFD` (corda vertical ao alcance),
+  `$1AFF` (corda de balançar ao alcance), `$1B01` (corda segurada). A corda grava "ao alcance"
+  pensando num Kong (B6:8000) e o Kong lê em `BF:8861/881C`; com dois Kongs um sobrescrevia o do
+  outro.
+- Correção: cada Kong tem sua cópia dessas variáveis (trocadas na atualização do secundário, como
+  o contexto `$1811–$1930`, e na troca de líder). As cordas ($30 vertical, $31 de balançar) são
+  envolvidas: a cada quadro cada corda trata **um** Kong — o que a segura, senão o mais próximo —
+  com as variáveis desse Kong no lugar e "qual é o jogador" respondendo esse Kong.
+- Testes: Diddy agarra (estado $25, x $1A41) e segue pulando; só o DK pulando: o DK agarra.
+  Bateria com 12 rotas: tudo igual; regressão sem co-op inalterada.
+- Limites: só a corda vertical foi vista na rota; a de balançar ($26) usa o mesmo caminho mas não
+  foi vista. Dois Kongs na **mesma** corda ao mesmo tempo: a corda carrega só um deles.
+
+### 2026-10-20 — Dois Kongs na mesma corda (gravação F9 do usuário)
+
+- Gravações em `repro/` (Ropey Rampage, modo Team): o DK na corda vertical (estado $25) e o
+  Diddy ao lado sem conseguir subir na mesma corda — a corda tratava um Kong por quadro.
+- Correção: cada corda roda uma vez para o Kong que a segura (ou o mais próximo) e, se o outro
+  também a segura ou está a até $40 px, roda de novo para ele, a partir do mesmo estado da corda
+  (51 campos de sprite salvos/restaurados, quadro de JSL e índice de OAM como nas bananas). A
+  corda fica com o estado da primeira passada (não balança nem anima em dobro); cada Kong é
+  agarrado/carregado na sua passada.
+- Teste `recipes/coop_rope_both_test.dks`: o Diddy agarra a corda, o DK pula reto e agarra a mesma
+  — os dois pendurados (Diddy em cima, DK embaixo). Bateria com 13 rotas igual; regressão sem
+  co-op inalterada.
+
+### 2026-10-20 — Corda sem "cabeça" e queda num buraco com o parceiro vivo
+
+- Na corda os Kongs se atravessam: a regra "em pé na cabeça do outro" não vale com qualquer um
+  dos dois nos estados de corda ($25 vertical, $26 de balançar).
+- Queda num buraco: no cartucho (BF:A6C9, Y < -$30) vira o estado $3B, congela a câmera
+  (`$1929`), toca a música de morte e tira uma vida — no original só o líder cai. No co-op, se um
+  Kong cai e o parceiro está em jogo, o Kong só sai de cena (estado $0C, sem categoria, sem
+  montaria; liderança passa ao parceiro se preciso) e volta pelo barril DK, como num dano. Pego um
+  pouco antes do cartucho (Y < -$18), antes da música e do congelamento. Nos bônus a queda continua
+  sendo a saída do bônus; sem parceiro em jogo, vale o original (perde a vida).
+- Teste (rota da corda): o DK cai no buraco → sai de cena, o Diddy vira o líder e segue (antes a
+  fase recomeçava). Depois o Diddy, sozinho, cai → vida perdida, como no original.
+- `coop_rope_test.dks` agora espera o Diddy na corda. Bateria igual; regressão sem co-op
+  inalterada.
+
+### 2026-10-20 — Teleporte de fase, widescreen no co-op, canhão com os dois
+
+- **Teleporte**: menu Controles → "Ir para a fase": escolhida uma fase, a próxima fase iniciada a
+  partir de um mapa (entradas $E6–$E9, $EB–$ED; $EA é a Reptile Rumble) vira a escolhida (uma vez).
+  O título mostra o teleporte pendente. É o mesmo mecanismo do auxílio `DKC1_COOP_TEST_WARP`
+  (agora genérico: mapa → fase).
+- **Widescreen**: já existe no menu View → Aspect Ratio → Widescreen 16:9 (342×224). A trava
+  "manter na tela" do co-op passou a usar a largura visível (inclui as colunas extras).
+- **Barril-canhão com os dois** (`recipes/coop_cannon_both_test.dks`, Barrel Cannon Canyon via
+  teleporte): os dois pulam juntos no mesmo canhão → um entra ($29), o outro fica de fora (barril
+  ocupado); cada jogador atira com o próprio B; com o barril livre, o outro entra e atira.
+  Um Kong por canhão de cada vez, cada um por si.
+- Bateria com 14 rotas: tudo igual; regressão sem co-op inalterada.
+
+### 2026-10-21 — Saída da 1ª caverna congelada com o DK pilotando (gravação F9)
+
+- Gravação (`repro/capture-f00007053…`): saída do bônus 1 (entrada $08) com o DK no estado $47
+  (escondido, esperando o barril de saída) em x $00F0 — lugar errado — sem barril de saída na lista
+  de sprites e `$1929` = 8 (sprites congelados): nada tira o DK do $47. Carregar o retrato
+  reproduz o congelamento; reproduzir a partida a partir do retrato do quadro 3600 não dá (o
+  estado do co-op não está no retrato).
+- Diferença em relação à minha rota (mesma saída, funcionando): `$0537` — o retrato da fase que o
+  jogo salva ao entrar num bônus (BC:BBBA, a partir do caminho que lê o destino pelo Kong ativo,
+  B8:8429) e restaura na volta (80:841F). Na partida do usuário ele não foi salvo: a entrada seguiu
+  outro caminho. Causa provável: a porta da caverna testa o toque com os dois Kongs e pegava o
+  Diddy na garupa; a regra "quem entra lidera" fazia o passageiro virar líder e as leituras de
+  destino/animal desencontravam.
+- Correções: (1) o Kong sentado na garupa não toca objetos (portas, itens) — o piloto toca;
+  (2) um passageiro nunca vira líder por uma transição (é puxado junto); (3) `$1705/$1707` são
+  igualados também no instante em que o jogo pergunta pelo jogador (não só no fim do quadro).
+- Garupa: Diddy atrás do DK a 20 px (a 30 px ficava além da garupa, flutuando atrás do rabo).
+- Bateria com 14 rotas igual; regressão sem co-op inalterada. A saída congelada em si não foi
+  reproduzida por rota (a rota equivalente funciona) — pedir nova gravação se voltar.
+
+### 2026-10-21 — Posição do Diddy na garupa (gravação F9)
+
+- Retrato da gravação renderizado: o Diddy na garupa ficava quase todo atrás do corpo do DK (só
+  pernas, rabo e braço à mostra) — uma mancha. Comparadas 4 posições (atrás, acima) com o auxílio
+  `DKC1_COOP_SEAT=<atrás>,<acima>`: (20,0), (18,6), (22,8), (24,12). Escolhida (22,8): sentado nas
+  costas do Rambi com cabeça e boné visíveis atrás do ombro do DK; (24,12) já parece flutuar.
+- Bateria com 14 rotas igual; regressão sem co-op inalterada.
+
+### 2026-10-21 — Pose do passageiro (Diddy "flutuando")
+
+- A pose usada ($0DB0 Diddy / $058C DK) é o quadro dos scripts de montaria em que o Kong monta de
+  pernas abertas; atrás do piloto, com a traseira do animal mais baixa, as pernas ficam no ar —
+  parecia flutuar em qualquer altura (testadas 5).
+- Comparadas poses do próprio jogo com o auxílio `DKC1_COOP_SEAT_POSE=<hex>`: montado próprio do
+  Kong (`RideAnimalBuddy`, anim $83/$1B → Diddy $0D00, DK $0538), agarrado ao Winky ($0D28),
+  agachado ($0D48), passagem estreita ($0D8C). Escolhidas $0D00 / $0538: sentado, compacto,
+  segurando — sem pernas soltas. Diddy 22 px atrás, sem elevar; DK 16 px atrás.
+- Bateria com 14 rotas igual; regressão sem co-op inalterada. Imagens em `repro/garupa_poses_*.png`.
+
+- 2026-10-22: Diddy na garupa mais perto do DK (14 px atrás, meio escondido, a pedido do usuário). Bateria igual.
+
+### 2026-10-23 — Squawks, Enguarde, teleporte e água
+
+- **Squawks (Torchlight Trouble):** wrapper `DKC1_NorSpr0D_Squawks_Main` — durante a atualização
+  dela, o líder é apresentado no ponto médio entre os dois Kongs (e restaurado depois), então a
+  luz fica entre a dupla. Ainda não visto em jogo: a rota de teste não conseguiu soltar a Squawks.
+- **Enguarde:** garupa estendida ao peixe (`RidesEnguarde`): embarque por proximidade nadando
+  (sem pousar nas costas), velocidade zerada enquanto carregado, pose mantida nos estados de nado.
+  Ainda não testado — ver "água" abaixo.
+- **Teleporte:** funcionava, mas só age ao entrar numa fase pelo mapa, e o aviso estava só no
+  título da janela. Agora a escolha abre uma caixa explicando e marca o item no menu. Testado:
+  `$2E` (Mine Cart Carnage) carrega certo.
+- **Achado — `DKC1_COOP_TEST_GIVE_PARTNER` na Torchlight:** o Diddy criado pelo auxílio salta
+  para o reset do jogo (`80:80F2`) 30 quadros depois (pilha descontrolada). Com a dupla real
+  (Diddy do barril DK na 1-1, teleporte na entrada da caverna com o novo
+  `DKC1_COOP_TEST_WARP_ANY`) a Torchlight roda normal: é limitação do auxílio, não do co-op.
+  Tentativa descartada: suspender o prazo do quadro nos wrappers (prendia o jogo em laço).
+- **Água (Coral Capers):** o Kong secundário saía do papel de seguidor no estado de chão e andava
+  invisível pelo fundo. Agora vira nado (2B) quando o parceiro nada. Mas continua seguindo o
+  caminho do líder (posição = a do líder 120 quadros antes) e invisível: algum efeito de sistema
+  da fase de água (categoria B do mapa, só no ativo) ainda o comanda. Pendente.
+- Formato dos controles nas receitas: bits do host (B=001, Y=002, Select=004, Start=008,
+  cima=010, baixo=020, esquerda=040, direita=080, A=100), J2 deslocado 12 bits.
+- Diagnóstico novo (desligado por padrão): `DKC1_COOP_TRACE_NEAR=1` lista quem pediu o "Kong mais
+  próximo"; `DKC1_COOP_TEST_NO_NEAR=<função>` desliga essa resposta para uma função; trace com
+  `e2b`/`f1929`.
+
+### 2026-10-23 — Kong invisível na água (Coral Capers)
+
+- Relato: "o Diddy some sozinho, ainda dá para controlar, mas não aparece nem interage"; e com o
+  Enguarde, ao quebrar um barril DK, "o macaco sumiu".
+- Causa: ao sair do papel de seguidor (barril DK, troca após dano, troca de área) o co-op punha o
+  Kong no estado de chão; na água, o estado de nado (2B) sem a animação de nado ($60) deixa o
+  Kong sem script de animação (`$116D` lixo): não é desenhado nem colide.
+- Correção: `EnterFreeState` — nado quando o parceiro nada, e inicia a animação como o cartucho
+  (80:852C: estado 2B + `Player_SetAnimation` $60), chamando a rotina original num quadro de JSL
+  e restaurando a CPU. O Diddy agora aparece, nada com o próprio controle e pega bananas.
+- Nova rota `coop_swim_test` na bateria. Enguarde ainda não alcançado por rota (caixa longe).
+- Widescreen "faixas verde e azul": é a camada de diagnóstico de procedência (F1 / View →
+  Provenance Overlay), não defeito.
+
+### 2026-10-26 — Trava de tela trocada por "coleira" (Kong atravessando parede)
+
+- Relato: o Kong empurrado pela borda da tela contra uma parede atravessava a parede.
+- Causa: `ClampToScreen` reposicionava à força quem saía da tela; com a câmera no ponto médio,
+  quando um Kong avançava, a câmera andava e o de trás era empurrado sem checar o cenário.
+- Correção: `LeashToPartner` — os Kongs ficam no máximo uma tela visível de distância (256 + as
+  colunas extras do widescreen − 2×16); quem se afastou neste quadro é segurado, nunca além de
+  onde estava no quadro anterior (posição que ele mesmo alcançou), e o outro nunca é empurrado.
+  Medido: em 4:3 o Kong que corre para a 225 px do parado, em widescreen a 311 px; o parado
+  não se move.
+- Consequência de jogo: um jogador não arrasta mais o outro; precisa esperar ou voltar.
+- Rotas ajustadas (dependiam do arrasto ou do ritmo exato de pulos): letra (pulo a partir de x
+  $0340), Rambi do DK (anda até $0B78 e pula três vezes), garupa no Rambi do Diddy (o DK volta até
+  $0B90 antes de pular). Limites da bateria: mount 11300, bonus2_team 14400.
+
+### 2026-10-26 — Diddy andando no fundo depois que o DK foi atingido
+
+- Relato: o DK morreu e o Diddy passou a andar no chão em vez de nadar.
+- Causa: a escolha "nado ou chão" ao assumir o controle olhava só o parceiro; atingido, o
+  parceiro sai do nado (3A → 39 → 0C), então o que assumia caía no estado de chão.
+- Correção: `s_in_water` — a área é de água desde o primeiro Kong visto nadando até a troca de
+  área (`$3E`); `FreeStateFor` usa isso além do parceiro.
+- Novo auxílio de teste `DKC1_COOP_TEST_HURT=<quadro>,<slot>` (evento de dano `$1595` = 1).
+  Testado: DK atingido na Coral Capers → Diddy assume e segue nadando. Bateria igual.
+
+### 2026-10-26 — Saída da garupa do Enguarde
+
+- Relato: ao descer da garupa do Enguarde o Kong continuava com pose de sentado.
+- Causa: o assento segura o timer da pose; ao sair, só o timer era liberado — em terra o pulo de
+  saída troca a animação, na água a braçada não, e o script ficava na pose sentada.
+- Correção: ao sair do assento com a área em água, na atualização seguinte o Kong recebe o estado
+  de nado com a animação de nado (`EnterFreeState`). Não testado por rota (Enguarde não alcançado).
+
+### 2026-10-26 — Dois Enguardes, controles misturados
+
+- Relato: com cada Kong no seu Enguarde, os controles interferiam um no outro.
+- Causa: o Kong secundário montado era promovido a líder (no cartucho só o ativo monta; isso
+  resolve as entradas de área que o animal abre). Com os dois montados, a liderança trocava a
+  cada quadro, trocando contextos e controles.
+- Correção: a promoção por montaria só acontece se o líder atual não estiver montado.
+  Bateria igual; dois animais ao mesmo tempo não testados por rota.
+
+### 2026-10-26 — Sem interação entre os Kongs na água
+
+- Relato: um Kong fez o outro atravessar a parede (Coral Capers). Decisão do usuário: nas fases
+  de água, remover a interação entre os macacos.
+- `StandOnPartner` não age com `s_in_water`: sem cabeça e sem garupa no Enguarde (quem estiver
+  sentado é solto e volta a nadar). Cada Kong nada sozinho ou no próprio Enguarde.
+  A garupa nos animais de terra continua. Bateria igual.
+
+### 2026-10-26 — Sem troca de controle montado
+
+- Pedido: com um ou os dois Kongs em montaria, os jogadores não podem trocar de Kong.
+- A troca do co-op (os dois apertam A, perto) fica bloqueada se algum Kong monta um animal ou
+  carrinho (`$0512/$0514`) ou está sentado na garupa. Testado: DK no Rambi + A dos dois → nada;
+  a pé, perto → troca. Bateria igual.
+
+### 2026-10-26 — Uma montaria por vez (dois Enguardes)
+
+- Relato com imagem e F9 (15:40): cada Kong no seu Enguarde (slots $0A e $10, estado $30); um
+  desenhado com gráficos/cores do outro. O cartucho só prevê um animal montado (gráficos e
+  paleta da montaria únicos); dois disputam esses recursos.
+- Regra: uma montaria por vez. Enquanto o parceiro monta (`$0512/$0514`), todos os sprites
+  montáveis (`$11A1` bit 8) ficam ocultos da atualização do outro Kong (generaliza a proteção
+  "um piloto por animal"). A garupa em terra é do co-op, não montaria, e continua.
+  Bateria com checkpoints idênticos.
+
+### 2026-10-27 — Garupa do Enguarde de volta, sem deslocamento
+
+- Pedido: ao menos a garupa no Enguarde (uma montaria por vez continua).
+- Na água, a única interação é o assento no Enguarde; o passageiro fica exatamente na posição do
+  piloto (sem deslocamento para trás/cima), um lugar que o piloto alcançou — o deslocamento é que
+  podia cair dentro de parede. Desenhado atrás do piloto. Cabeça continua desligada na água.
+  Bateria com checkpoints idênticos; garupa no Enguarde não testada por rota.
