@@ -1,0 +1,21 @@
+{
+  "schema": "dkc1.flight-recorder.v1",
+  "build": "v12-coop v12 unknown-time exe:cd9a1fc4",
+  "anchor_frame": 1200,
+  "current_frame": 4654,
+  "snes_frame": 4654,
+  "replay_frames": 3454,
+  "scene": {"mode": 0, "level": 0, "entrance": 22},
+  "ppu": {"obj_range_over": false, "obj_time_over": false},
+  "rom_sha256": "fa8cacf5bbfc39ee6bbaa557adf89133d60d42f6cf9e1db30d5a36a469f74d15",
+  "files": {
+    "anchor.snapshot": "879818803b1381ec57c78ffbc5ea5cf464173e88845e568279c26f667265e3b9",
+    "current.snapshot": "378d347b67e5a17cd9965b919ed994f7842a65cc5791456670ea0d06fae163df",
+    "inputs.txt": "134a046500dbf5e68d372092565a2fc4af82880d9b2e5a9fc6647bcec19f32a3",
+    "final.wram.bin": "e18b16c2399f375b96d20a4cff034f5c511ecee4fd5ef94776808d57ad351fbf",
+    "final.vram.bin": "5ca86fe7e4f316e650ee082cb0e25999bf063ae11a7db420b65d2a178ed2ca09",
+    "final.cgram.bin": "bb598b0b2f3b999b254c7bf6e005e49197d7799e3dc35646bca8c49072c3f401",
+    "final.wram-oam.bin": "9709dde355c6dbf0352747518c732e6b8bf91230499a816161f684667b9e71cf",
+    "final.ppu-oam.bin": "bff40a92e84b96e69f1a283abf3948f4ba180c79d49ad5e160e0d7a730d80597"
+  }
+}
