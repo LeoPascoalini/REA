@@ -1,0 +1,38 @@
+{
+  "schema": "snesrecomp tier2 coverage v1",
+  "rom_title": "dkc1",
+  "total_tier_hits": 33768,
+  "distinct_sites": 25,
+  "overflowed_tuples": 0,
+  "journal_write_failures": 0,
+  "discoveries": [
+    {"site_pc24": "0x00A98B", "target_pc24": "0x00BC9E", "entry_mx": "M0X0", "site_kind": "goto_gap", "clean_hits": 447, "bail_hits": 0, "first_frame": 82, "last_frame": 707},
+    {"site_pc24": "0x01CC77", "target_pc24": "0x01CCA5", "entry_mx": "M1X1", "site_kind": "indirect_dispatch", "clean_hits": 223, "bail_hits": 0, "first_frame": 306, "last_frame": 707},
+    {"site_pc24": "0x01CC84", "target_pc24": "0x01CCA5", "entry_mx": "M1X1", "site_kind": "indirect_dispatch", "clean_hits": 223, "bail_hits": 0, "first_frame": 306, "last_frame": 707},
+    {"site_pc24": "0x00A98B", "target_pc24": "0x00F387", "entry_mx": "M0X0", "site_kind": "goto_gap", "clean_hits": 210, "bail_hits": 0, "first_frame": 795, "last_frame": 1004},
+    {"site_pc24": "0x00A98B", "target_pc24": "0x00F29C", "entry_mx": "M0X0", "site_kind": "goto_gap", "clean_hits": 142, "bail_hits": 0, "first_frame": 1006, "last_frame": 1147},
+    {"site_pc24": "0x00A98B", "target_pc24": "0x0080A9", "entry_mx": "M0X0", "site_kind": "goto_gap", "clean_hits": 15277, "bail_hits": 0, "first_frame": 1693, "last_frame": 17052},
+    {"site_pc24": "0x3E813B", "target_pc24": "0x3E8CFB", "entry_mx": "M0X0", "site_kind": "goto_gap", "clean_hits": 12600, "bail_hits": 0, "first_frame": 1772, "last_frame": 11353},
+    {"site_pc24": "0x3E813B", "target_pc24": "0x3E8CFB", "entry_mx": "M0X0", "site_kind": "indirect_goto", "clean_hits": 12600, "bail_hits": 0, "first_frame": 1772, "last_frame": 11353},
+    {"site_pc24": "0x38BD8A", "target_pc24": "0x38BDC0", "entry_mx": "M0X1", "site_kind": "indirect_dispatch", "clean_hits": 31, "bail_hits": 0, "first_frame": 1877, "last_frame": 14705},
+    {"site_pc24": "0x38BDE5", "target_pc24": "0x3FFB71", "entry_mx": "M0X1", "site_kind": "call_gap", "clean_hits": 41, "bail_hits": 0, "first_frame": 1877, "last_frame": 14573},
+    {"site_pc24": "0x3FFB71", "target_pc24": "0x3FFB75", "entry_mx": "M0X1", "site_kind": "call_gap", "clean_hits": 44, "bail_hits": 0, "first_frame": 1877, "last_frame": 14705},
+    {"site_pc24": "0x3E813B", "target_pc24": "0x3EE069", "entry_mx": "M0X0", "site_kind": "indirect_goto", "clean_hits": 5286, "bail_hits": 0, "first_frame": 1961, "last_frame": 9040},
+    {"site_pc24": "0x3E813B", "target_pc24": "0x3E9630", "entry_mx": "M0X0", "site_kind": "indirect_goto", "clean_hits": 31, "bail_hits": 0, "first_frame": 2987, "last_frame": 3017},
+    {"site_pc24": "0x3E8133", "target_pc24": "0x00855A", "entry_mx": "M0X0", "site_kind": "indirect_dispatch", "clean_hits": 1, "bail_hits": 0, "first_frame": 3019, "last_frame": 3019},
+    {"site_pc24": "0x00A98B", "target_pc24": "0x00A98E", "entry_mx": "M0X0", "site_kind": "goto_gap", "clean_hits": 9, "bail_hits": 0, "first_frame": 4769, "last_frame": 16321},
+    {"site_pc24": "0x3E813B", "target_pc24": "0x3EBB15", "entry_mx": "M0X0", "site_kind": "goto_gap", "clean_hits": 4355, "bail_hits": 0, "first_frame": 6953, "last_frame": 17052},
+    {"site_pc24": "0x3E813B", "target_pc24": "0x3EBD9A", "entry_mx": "M0X0", "site_kind": "indirect_goto", "clean_hits": 9791, "bail_hits": 0, "first_frame": 6953, "last_frame": 16947},
+    {"site_pc24": "0x3E813B", "target_pc24": "0x3EBB15", "entry_mx": "M0X0", "site_kind": "indirect_goto", "clean_hits": 4355, "bail_hits": 0, "first_frame": 6953, "last_frame": 17052},
+    {"site_pc24": "0x3E8194", "target_pc24": "0x3E811B", "entry_mx": "M0X0", "site_kind": "indirect_goto", "clean_hits": 518, "bail_hits": 0, "first_frame": 6955, "last_frame": 9868},
+    {"site_pc24": "0x38BD65", "target_pc24": "0x38BDC0", "entry_mx": "M0X1", "site_kind": "indirect_dispatch", "clean_hits": 13, "bail_hits": 0, "first_frame": 7336, "last_frame": 14639},
+    {"site_pc24": "0x3E813B", "target_pc24": "0x3EE0E8", "entry_mx": "M0X0", "site_kind": "indirect_goto", "clean_hits": 387, "bail_hits": 0, "first_frame": 9104, "last_frame": 11758},
+    {"site_pc24": "0x3E813B", "target_pc24": "0x3EDF4F", "entry_mx": "M0X0", "site_kind": "indirect_goto", "clean_hits": 309, "bail_hits": 0, "first_frame": 13174, "last_frame": 14987},
+    {"site_pc24": "0x38BDF8", "target_pc24": "0x3FD953", "entry_mx": "M0X1", "site_kind": "call_gap", "clean_hits": 3, "bail_hits": 0, "first_frame": 14639, "last_frame": 14705},
+    {"site_pc24": "0x3FD953", "target_pc24": "0x3FD957", "entry_mx": "M0X1", "site_kind": "call_gap", "clean_hits": 3, "bail_hits": 0, "first_frame": 14639, "last_frame": 14705},
+    {"site_pc24": "0x38BDFF", "target_pc24": "0x3FFB71", "entry_mx": "M0X1", "site_kind": "call_gap", "clean_hits": 3, "bail_hits": 0, "first_frame": 14639, "last_frame": 14705}
+  ],
+  "ram_routines_overflow": 0,
+  "ram_routines": [
+  ]
+}

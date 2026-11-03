@@ -1,0 +1,13 @@
+{
+  "schema": "snesrecomp tier2 coverage v1",
+  "rom_title": "dkc1",
+  "total_tier_hits": 0,
+  "distinct_sites": 0,
+  "overflowed_tuples": 0,
+  "journal_write_failures": 0,
+  "discoveries": [
+  ],
+  "ram_routines_overflow": 0,
+  "ram_routines": [
+  ]
+}

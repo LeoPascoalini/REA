@@ -1,0 +1,36 @@
+{
+  "schema": "snesrecomp tier2 coverage v1",
+  "rom_title": "dkc1",
+  "total_tier_hits": 7627,
+  "distinct_sites": 23,
+  "overflowed_tuples": 0,
+  "journal_write_failures": 0,
+  "discoveries": [
+    {"site_pc24": "0x00A98B", "target_pc24": "0x00BC9E", "entry_mx": "M0X0", "site_kind": "goto_gap", "clean_hits": 447, "bail_hits": 0, "first_frame": 82, "last_frame": 707},
+    {"site_pc24": "0x01CC77", "target_pc24": "0x01CCA5", "entry_mx": "M1X1", "site_kind": "indirect_dispatch", "clean_hits": 223, "bail_hits": 0, "first_frame": 306, "last_frame": 707},
+    {"site_pc24": "0x01CC84", "target_pc24": "0x01CCA5", "entry_mx": "M1X1", "site_kind": "indirect_dispatch", "clean_hits": 223, "bail_hits": 0, "first_frame": 306, "last_frame": 707},
+    {"site_pc24": "0x00A98B", "target_pc24": "0x00F387", "entry_mx": "M0X0", "site_kind": "goto_gap", "clean_hits": 210, "bail_hits": 0, "first_frame": 844, "last_frame": 1053},
+    {"site_pc24": "0x00A98B", "target_pc24": "0x00F29C", "entry_mx": "M0X0", "site_kind": "goto_gap", "clean_hits": 142, "bail_hits": 0, "first_frame": 1055, "last_frame": 1196},
+    {"site_pc24": "0x00A98B", "target_pc24": "0x0080A9", "entry_mx": "M0X0", "site_kind": "goto_gap", "clean_hits": 9548, "bail_hits": 0, "first_frame": 2055, "last_frame": 12998},
+    {"site_pc24": "0x3E813B", "target_pc24": "0x3E9E6F", "entry_mx": "M0X0", "site_kind": "indirect_goto", "clean_hits": 133, "bail_hits": 0, "first_frame": 2144, "last_frame": 9396},
+    {"site_pc24": "0x3E813B", "target_pc24": "0x3EA596", "entry_mx": "M0X0", "site_kind": "indirect_goto", "clean_hits": 5262, "bail_hits": 0, "first_frame": 2185, "last_frame": 12998},
+    {"site_pc24": "0x3E813B", "target_pc24": "0x3E94AB", "entry_mx": "M0X0", "site_kind": "indirect_goto", "clean_hits": 39, "bail_hits": 0, "first_frame": 2205, "last_frame": 2924},
+    {"site_pc24": "0x3E813B", "target_pc24": "0x3E9134", "entry_mx": "M0X0", "site_kind": "indirect_goto", "clean_hits": 94, "bail_hits": 0, "first_frame": 2242, "last_frame": 4728},
+    {"site_pc24": "0x3E813B", "target_pc24": "0x3E91B7", "entry_mx": "M0X0", "site_kind": "indirect_goto", "clean_hits": 282, "bail_hits": 0, "first_frame": 2244, "last_frame": 4713},
+    {"site_pc24": "0x3E8194", "target_pc24": "0x3E811B", "entry_mx": "M0X0", "site_kind": "indirect_goto", "clean_hits": 435, "bail_hits": 0, "first_frame": 2250, "last_frame": 9982},
+    {"site_pc24": "0x3E813B", "target_pc24": "0x3E9630", "entry_mx": "M0X0", "site_kind": "indirect_goto", "clean_hits": 477, "bail_hits": 0, "first_frame": 2661, "last_frame": 10302},
+    {"site_pc24": "0x3E813B", "target_pc24": "0x3EA759", "entry_mx": "M0X0", "site_kind": "goto_gap", "clean_hits": 228, "bail_hits": 0, "first_frame": 2946, "last_frame": 10242},
+    {"site_pc24": "0x3E8194", "target_pc24": "0x3E851B", "entry_mx": "M0X0", "site_kind": "indirect_goto", "clean_hits": 153, "bail_hits": 0, "first_frame": 2946, "last_frame": 10230},
+    {"site_pc24": "0x3E813B", "target_pc24": "0x3EA759", "entry_mx": "M0X0", "site_kind": "indirect_goto", "clean_hits": 189, "bail_hits": 0, "first_frame": 2947, "last_frame": 10242},
+    {"site_pc24": "0x3E8194", "target_pc24": "0x3E84DA", "entry_mx": "M0X0", "site_kind": "goto_gap", "clean_hits": 46, "bail_hits": 0, "first_frame": 2961, "last_frame": 10200},
+    {"site_pc24": "0x3E8194", "target_pc24": "0x3E84DA", "entry_mx": "M0X0", "site_kind": "indirect_goto", "clean_hits": 46, "bail_hits": 0, "first_frame": 2961, "last_frame": 10200},
+    {"site_pc24": "0x38BD8A", "target_pc24": "0x38BDC0", "entry_mx": "M0X1", "site_kind": "indirect_dispatch", "clean_hits": 61, "bail_hits": 0, "first_frame": 3400, "last_frame": 11466},
+    {"site_pc24": "0x38BDE5", "target_pc24": "0x3FFB71", "entry_mx": "M0X1", "site_kind": "call_gap", "clean_hits": 71, "bail_hits": 0, "first_frame": 3400, "last_frame": 11466},
+    {"site_pc24": "0x3FFB71", "target_pc24": "0x3FFB75", "entry_mx": "M0X1", "site_kind": "call_gap", "clean_hits": 71, "bail_hits": 0, "first_frame": 3400, "last_frame": 11466},
+    {"site_pc24": "0x38BD65", "target_pc24": "0x38BDC0", "entry_mx": "M0X1", "site_kind": "indirect_dispatch", "clean_hits": 10, "bail_hits": 0, "first_frame": 3595, "last_frame": 11083},
+    {"site_pc24": "0x00A98B", "target_pc24": "0x00A98E", "entry_mx": "M0X0", "site_kind": "goto_gap", "clean_hits": 8, "bail_hits": 0, "first_frame": 3676, "last_frame": 11590}
+  ],
+  "ram_routines_overflow": 0,
+  "ram_routines": [
+  ]
+}
