@@ -1,0 +1,9 @@
+# Ferramentas baixadas (cc65) e saídas de build
+tools/
+build/
+
+# Nunca versionar ROMs (nem a original nem a patcheada)
+*.nes
+*.cdl
+
+__pycache__/
