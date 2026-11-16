@@ -24,7 +24,10 @@ DIST = RAIZ / "dist"
 CRC_ESPERADO = 0x24598791          # ROM sem cabeçalho (No-Intro "Duck Hunt (World)")
 BASE_CPU = 0xC000                  # NROM-128: PRG de 16 KB vista em $C000-$FFFF
 TAM_CABECALHO = 16
-LIVRE = (0xEF5A, 0xF2FF)           # bloco de $FF usado para o código novo
+LIVRE = [(0xEF5A, 0xF2FF), (0xFF2F, 0xFFF9)]   # blocos de $FF usados para o código novo
+# Trechos da rotina original do tiro que o patch deixou mortos (nenhum salto chega
+# neles depois de $D1C7/$D1CA). O CRC já garante quais eram os bytes originais.
+MORTO = [(0xD1CD, 0xD1DC), (0xD1F4, 0xD22C), (0xD270, 0xD289)]
 
 # (arquivo montado, endereço CPU, bytes originais esperados ou None = tem que ser $FF, motivo)
 TRECHOS = [
@@ -48,6 +51,11 @@ TRECHOS = [
      "LDA $05FE -> JSR LeModoJogo (modo 3 nunca vira partida)"),
     ("p_NOVO.bin", 0xEF60, None,
      "rotinas novas (pistola, flash, menu, calibração) em espaço livre ($FF)"),
+    ("p_FIM.bin", 0xFF30, None,
+     "sombra (cenário escurecido no tiro) e teste de sombra, em espaço livre ($FF)"),
+    ("p_D1CD.bin", 0xD1CD, "morto", "lista de texto CALIBRATION, em código original morto"),
+    ("p_D1F4.bin", 0xD1F4, "morto", "Escurece / ProximoS / cores do teste, em código original morto"),
+    ("p_D270.bin", 0xD270, "morto", "LeModoJogo / DoisDigitos, em código original morto"),
 ]
 
 # Cabeçalho NES 2.0, bytes 6 a 15. Não depende do cabeçalho do dump (que pode
@@ -143,8 +151,12 @@ def main():
         orig = rom[off:off + len(dados)]
         if esperado is None:
             fim = end + len(dados) - 1
-            if not (LIVRE[0] <= end and fim <= LIVRE[1]) or set(orig) != {0xFF}:
+            if not any(a <= end and fim <= b for a, b in LIVRE) or set(orig) != {0xFF}:
                 sys.exit(f"${end:04X}-${fim:04X} não está todo dentro do espaço livre de $FF")
+        elif esperado == "morto":
+            fim = end + len(dados) - 1
+            if not any(a <= end and fim <= b for a, b in MORTO):
+                sys.exit(f"${end:04X}-${fim:04X} não está dentro de um trecho morto")
         elif orig != esperado:
             sys.exit(f"${end:04X}: bytes originais {orig.hex(' ')} != esperado {esperado.hex(' ')}")
         registros.append((off, dados))
