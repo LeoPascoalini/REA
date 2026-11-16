@@ -1,13 +1,17 @@
 """Monta o patch (ca65/ld65), gera o .ips, aplica numa CÓPIA da ROM e confere tudo.
 
 Uso:
-    python build.py "C:/caminho/Duck Hunt (World).nes"
+    python build.py "C:/caminho/Duck Hunt (World).nes"                  # V4, protocolo 1
+    python build.py "C:/caminho/Duck Hunt (World).nes" --protocolo 2    # V5, protocolo 2
     python build.py ROM --sem-montar     # só gera o .ips a partir dos .bin já montados
 
-Saídas:
-    dist/duckhunt_pistola.ips        o patch
-    dist/tabela_enderecos.md         endereços alterados (bytes originais x novos)
-    build/DuckHunt_pistola.nes       cópia patcheada, só para teste (fora do git)
+Saídas (protocolo 1 / protocolo 2):
+    dist/duckhunt_pistola.ips      / dist/duckhunt_pistola_p2.ips       o patch
+    dist/tabela_enderecos.md       / dist/tabela_enderecos_p2.md        endereços alterados
+    build/DuckHunt_pistola.nes     / build/DuckHunt_V5.nes              cópia patcheada (fora do git)
+
+Protocolo 1 (V4): A = "vejo luz", o jogo decide o acerto; calibração K/N/S no menu.
+Protocolo 2 (V5): a pistola decide e aperta A (alvo 1) ou A+B (alvo 2); sem menu de calibração.
 A ROM original nunca é escrita.
 """
 import argparse
@@ -24,7 +28,10 @@ DIST = RAIZ / "dist"
 CRC_ESPERADO = 0x24598791          # ROM sem cabeçalho (No-Intro "Duck Hunt (World)")
 BASE_CPU = 0xC000                  # NROM-128: PRG de 16 KB vista em $C000-$FFFF
 TAM_CABECALHO = 16
-LIVRE = (0xEF5A, 0xF2FF)           # bloco de $FF usado para o código novo
+LIVRE = [(0xEF5A, 0xF2FF), (0xFF2F, 0xFFF9)]   # blocos de $FF usados para o código novo
+# Trechos da rotina original do tiro que o patch deixou mortos (nenhum salto chega
+# neles depois de $D1C7/$D1CA). O CRC já garante quais eram os bytes originais.
+MORTO = [(0xD1CD, 0xD1DC), (0xD1F4, 0xD22C), (0xD270, 0xD289)]
 
 # (arquivo montado, endereço CPU, bytes originais esperados ou None = tem que ser $FF, motivo)
 TRECHOS = [
@@ -48,6 +55,23 @@ TRECHOS = [
      "LDA $05FE -> JSR LeModoJogo (modo 3 nunca vira partida)"),
     ("p_NOVO.bin", 0xEF60, None,
      "rotinas novas (pistola, flash, menu, calibração) em espaço livre ($FF)"),
+    ("p_FIM.bin", 0xFF30, None,
+     "sombra (cenário escurecido no tiro) e teste de sombra, em espaço livre ($FF)"),
+    ("p_D1CD.bin", 0xD1CD, "morto", "lista de texto CALIBRATION, em código original morto"),
+    ("p_D1F4.bin", 0xD1F4, "morto", "Escurece / ProximoS / cores do teste, em código original morto"),
+    ("p_D270.bin", 0xD270, "morto", "LeModoJogo / DoisDigitos, em código original morto"),
+]
+
+# Protocolo 2 (V5): só três trechos do original + rotinas novas.
+TRECHOS_P2 = [
+    ("p2_C071.bin", 0xC071, bytes.fromhex("2084C2"),
+     "JSR $C284 (lê os controles) -> JSR PorQuadro (confere o acertou no prazo)"),
+    ("p2_D131.bin", 0xD131, bytes.fromhex("AD1740"),
+     "LDA $4017 (gatilho da Zapper) -> JSR LerGatilho (só B sozinho, fora do prazo)"),
+    ("p2_D1C7.bin", 0xD1C7, bytes.fromhex("2092D2201EC6"),
+     "JSR $D292 / JSR $C61E -> JMP FlashComQuadrado / JMP FlashSemQuadrado (piscada curta)"),
+    ("p2_NOVO.bin", 0xEF60, None,
+     "rotinas novas (gatilho, piscada, prazo do acerto) em espaço livre ($FF)"),
 ]
 
 # Cabeçalho NES 2.0, bytes 6 a 15. Não depende do cabeçalho do dump (que pode
@@ -62,20 +86,31 @@ TRECHOS = [
 #   15: $01  acessório padrão = controles padrão (antes: $08 = Zapper)
 CABECALHO_OFFSET = 6
 CABECALHO_NOVO = bytes([0x03, 0x08, 0x00, 0x00, 0x70, 0x00, 0x02, 0x00, 0x00, 0x01])
+# Protocolo 2: sem bateria e sem PRG-RAM (byte 6 = $01, byte 10 = $00).
+CABECALHO_P2 = bytes([0x01, 0x08, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00, 0x00, 0x01])
+
+VARIANTES = {
+    1: dict(fonte="patch", trechos=TRECHOS, cabecalho=CABECALHO_NOVO, ips="duckhunt_pistola.ips",
+            tabela="tabela_enderecos.md", nes="DuckHunt_pistola.nes",
+            cab_motivo="cabeçalho NES 2.0: 8 KB de RAM com bateria em $6000, controles padrão"),
+    2: dict(fonte="patch_p2", trechos=TRECHOS_P2, cabecalho=CABECALHO_P2, ips="duckhunt_pistola_p2.ips",
+            tabela="tabela_enderecos_p2.md", nes="DuckHunt_V5.nes",
+            cab_motivo="cabeçalho NES 2.0: controles padrão, sem RAM extra"),
+}
 
 
 def offset_arquivo(endereco):
     return endereco - BASE_CPU + TAM_CABECALHO
 
 
-def montar():
+def montar(fonte):
     BUILD.mkdir(exist_ok=True)
     ca65, ld65 = CC65 / "ca65.exe", CC65 / "ld65.exe"
     if not ca65.exists():
         sys.exit(f"ca65 não encontrado em {ca65}")
     cmds = [
-        [str(ca65), "-o", str(BUILD / "patch.o"), "-l", str(BUILD / "patch.lst"), str(RAIZ / "src" / "patch.s")],
-        [str(ld65), "-C", str(RAIZ / "src" / "patch.cfg"), "-m", str(BUILD / "patch.map"), str(BUILD / "patch.o")],
+        [str(ca65), "-o", str(BUILD / f"{fonte}.o"), "-l", str(BUILD / f"{fonte}.lst"), str(RAIZ / "src" / f"{fonte}.s")],
+        [str(ld65), "-C", str(RAIZ / "src" / f"{fonte}.cfg"), "-m", str(BUILD / f"{fonte}.map"), str(BUILD / f"{fonte}.o")],
     ]
     for c in cmds:
         r = subprocess.run(c, cwd=RAIZ, capture_output=True, text=True)
@@ -125,26 +160,32 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("rom")
     ap.add_argument("--sem-montar", action="store_true")
+    ap.add_argument("--protocolo", type=int, choices=(1, 2), default=1)
     a = ap.parse_args()
+    v = VARIANTES[a.protocolo]
 
     rom = Path(a.rom).read_bytes()
     conferir_rom(rom)
     if not a.sem_montar:
-        montar()
+        montar(v["fonte"])
 
     registros, linhas = [], []
-    orig_cab = rom[CABECALHO_OFFSET:CABECALHO_OFFSET + len(CABECALHO_NOVO)]
-    registros.append((CABECALHO_OFFSET, CABECALHO_NOVO))
-    linhas.append((None, CABECALHO_OFFSET, orig_cab, CABECALHO_NOVO,
-                   "cabeçalho NES 2.0: 8 KB de RAM com bateria em $6000, controles padrão"))
-    for nome, end, esperado, motivo in TRECHOS:
+    cab = v["cabecalho"]
+    orig_cab = rom[CABECALHO_OFFSET:CABECALHO_OFFSET + len(cab)]
+    registros.append((CABECALHO_OFFSET, cab))
+    linhas.append((None, CABECALHO_OFFSET, orig_cab, cab, v["cab_motivo"]))
+    for nome, end, esperado, motivo in v["trechos"]:
         dados = (BUILD / nome).read_bytes()
         off = offset_arquivo(end)
         orig = rom[off:off + len(dados)]
         if esperado is None:
             fim = end + len(dados) - 1
-            if not (LIVRE[0] <= end and fim <= LIVRE[1]) or set(orig) != {0xFF}:
+            if not any(a <= end and fim <= b for a, b in LIVRE) or set(orig) != {0xFF}:
                 sys.exit(f"${end:04X}-${fim:04X} não está todo dentro do espaço livre de $FF")
+        elif esperado == "morto":
+            fim = end + len(dados) - 1
+            if not any(a <= end and fim <= b for a, b in MORTO):
+                sys.exit(f"${end:04X}-${fim:04X} não está dentro de um trecho morto")
         elif orig != esperado:
             sys.exit(f"${end:04X}: bytes originais {orig.hex(' ')} != esperado {esperado.hex(' ')}")
         registros.append((off, dados))
@@ -152,11 +193,11 @@ def main():
 
     ips = gerar_ips(registros)
     DIST.mkdir(exist_ok=True)
-    (DIST / "duckhunt_pistola.ips").write_bytes(ips)
+    (DIST / v["ips"]).write_bytes(ips)
 
     patcheada = aplicar_ips(rom, ips)
     BUILD.mkdir(exist_ok=True)
-    (BUILD / "DuckHunt_pistola.nes").write_bytes(patcheada)
+    (BUILD / v["nes"]).write_bytes(patcheada)
 
     # Confere que só mudou o que está na tabela
     mudou = [i for i in range(len(rom)) if rom[i] != patcheada[i]]
@@ -176,12 +217,12 @@ def main():
     for end, off, orig, dados, motivo in linhas:
         onde = "cabeçalho" if end is None else f"${end:04X}-${end + len(dados) - 1:04X}"
         md.append(f"| {onde} | 0x{off:05X} | {curto(orig)} | {curto(dados)} | {motivo} |")
-    (DIST / "tabela_enderecos.md").write_text("\n".join(md) + "\n", encoding="utf-8")
+    (DIST / v["tabela"]).write_text("\n".join(md) + "\n", encoding="utf-8")
 
     print("\n".join(md))
     crc_novo = zlib.crc32(patcheada[TAM_CABECALHO:]) & 0xFFFFFFFF
-    print(f"\nIPS: {DIST / 'duckhunt_pistola.ips'} ({len(ips)} bytes)")
-    print(f"Cópia patcheada: {BUILD / 'DuckHunt_pistola.nes'} (CRC32 sem cabeçalho {crc_novo:08X})")
+    print(f"\nIPS: {DIST / v['ips']} ({len(ips)} bytes)")
+    print(f"Cópia patcheada: {BUILD / v['nes']} (CRC32 sem cabeçalho {crc_novo:08X})")
     print(f"Bytes alterados: {len(mudou)}, todos dentro dos trechos da tabela.")
 
 

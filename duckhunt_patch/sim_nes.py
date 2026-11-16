@@ -15,9 +15,10 @@ CICLOS_VBLANK = 2273
 BOTOES = ["A", "B", "SELECT", "START", "CIMA", "BAIXO", "ESQ", "DIR"]
 
 
-def cor_clara(c):
-    """Cores NES claras o bastante para o sensor (linhas $2x/$3x, exceto pretos $xD-$xF)."""
-    return (c & 0x30) >= 0x20 and (c & 0x0F) < 0x0D
+def cor_clara(c, linha_clara=2):
+    """Cores NES claras o bastante para o sensor: linha de brilho (c >> 4) >= linha_clara,
+    exceto os pretos $xD-$xF. Padrão 2 = só $2x/$3x; 1 = sensor mais sensível ($1x também)."""
+    return (c >> 4) & 3 >= linha_clara and (c & 0x0F) < 0x0D
 
 
 def tile_txt(t):
@@ -29,7 +30,7 @@ def tile_txt(t):
 
 
 class NES:
-    def __init__(self, rom, prg_ram=None):
+    def __init__(self, rom, prg_ram=None, sem_nvram=False):
         self.rom = rom
         prg = rom[16:16 + 16384]
         self.chr = rom[16 + 16384:16 + 16384 + 8192]
@@ -38,6 +39,8 @@ class NES:
         self.mem.write(0xC000, list(prg))
         if prg_ram is not None:                      # conteúdo inicial da RAM extra ($6000)
             self.mem.write(0x6000, list(prg_ram))
+        if sem_nvram:                                # sem RAM extra: barramento aberto em $6000-$7FFF
+            self.mem.subscribe_to_read(range(0x6000, 0x8000), lambda a: 0x60)
         self.cpu = MPU(memory=self.mem)
         # PPU
         self.ctrl = self.mask = 0
@@ -55,9 +58,11 @@ class NES:
         self.estado = [0, 0]                        # byte latched: bit7=A ... bit0=Dir
         self.pad1 = lambda q: set()                 # quadro -> conjunto de botões
         self.gatilho = lambda q: False
+        self.pad2 = None                            # protocolo 2: quadro -> botões do controle 2
         self.mira = None                            # (x, y) ou None
         self.L, self.H = 0, 2
         self.luz_sempre = False
+        self.linha_clara = 2                        # sensibilidade do sensor (ver cor_clara)
         # histórico de quadros exibidos
         self.quadro = 0
         self.claro = []                             # o ponto mirado estava claro no quadro q?
@@ -153,10 +158,12 @@ class NES:
         return b
 
     def _latch(self):
-        luz = self.luz()
-        p2 = {"A"} if luz else set()
-        if self.gatilho(self.quadro):
-            p2.add("B")
+        if self.pad2 is not None:                    # protocolo 2: a pistola diz os botões
+            p2 = set(self.pad2(self.quadro))
+        else:                                        # protocolo 1: A = luz, B = gatilho
+            p2 = {"A"} if self.luz() else set()
+            if self.gatilho(self.quadro):
+                p2.add("B")
         self.estado = [self._byte_pad(self.pad1(self.quadro)), self._byte_pad(p2)]
         self.idx = [0, 0]
 
@@ -220,7 +227,7 @@ class NES:
         x, y = mira
         if not (0 <= x < 256 and 0 <= y < 240):
             return False
-        return cor_clara(self.pixel(x, y))
+        return cor_clara(self.pixel(x, y), self.linha_clara)
 
     def luz(self):
         if self.luz_sempre:

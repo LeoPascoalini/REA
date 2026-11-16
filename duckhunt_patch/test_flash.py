@@ -10,7 +10,7 @@ O que é simulado:
   - Entrada: modo "zapper" ($4017 bit 3/4, ROM original) ou "pad" (controle padrão, ROM patcheada)
 
 Uso:
-    python test_flash.py ROM_ORIGINAL [ROM_PATCHEADA] [--n 10 --k 7]
+    python test_flash.py ROM_ORIGINAL [ROM_PATCHEADA] [--n 8 --k 7]
 """
 import argparse
 import sys
@@ -24,7 +24,7 @@ CONFIG_RAM = None            # (K, N) gravados na RAM extra antes de cada teste
 
 
 class Sim:
-    def __init__(self, rom, modo, latencia=0, segura=2, mira=None, luz_sempre=False, gatilho=None):
+    def __init__(self, rom, modo, latencia=0, segura=2, mira=None, luz_sempre=False, gatilho=None, sem_nvram=False):
         self.prg = rom[16:16 + 16384]
         self.modo, self.L, self.H = modo, latencia, segura
         self.mira, self.luz_sempre = mira, luz_sempre
@@ -32,9 +32,11 @@ class Sim:
         self.mem = ObservableMemory()
         self.mem.write(0xC000, list(self.prg))
         self.mem.write(0x8000, list(self.prg))
-        if CONFIG_RAM:                                   # K/N na RAM extra ($6000), como o patch grava
+        if CONFIG_RAM and not sem_nvram:                 # K/N na RAM extra ($6000), como o patch grava
             k, n = CONFIG_RAM
-            self.mem.write(0x6000, [0x44, 0x48, k, n, k ^ n ^ 0x5A])
+            self.mem.write(0x6000, [0x44, 0x4A, k, n, k ^ n ^ 0x5A, 0])   # S = 0 (tela preta)
+        if sem_nvram:                                    # sem RAM extra: barramento aberto
+            self.mem.subscribe_to_read(range(0x6000, 0x8000), lambda a: 0x60)
         self.cpu = MPU(memory=self.mem)
         self.mask = 0x1E
         self.quadro = 0
@@ -158,8 +160,8 @@ def preparar_tiro(sim, jogo, patos, modo24=False):
     return alvos
 
 
-def tiro(rom, modo, jogo="A", patos=(1,), mira=None, L=0, H=2, luz_sempre=False, modo24=False):
-    sim = Sim(rom, modo, L, H)
+def tiro(rom, modo, jogo="A", patos=(1,), mira=None, L=0, H=2, luz_sempre=False, modo24=False, sem_nvram=False):
+    sim = Sim(rom, modo, L, H, sem_nvram=sem_nvram)
     alvos = preparar_tiro(sim, jogo, patos, modo24)
     sim.mira = alvos.get(mira) if isinstance(mira, int) else mira
     sim.luz_sempre = luz_sempre
@@ -190,7 +192,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("original")
     ap.add_argument("patcheada", nargs="?")
-    ap.add_argument("--n", type=int, default=10)
+    ap.add_argument("--n", type=int, default=8)
     ap.add_argument("--k", type=int, default=7)
     a = ap.parse_args()
     orig = open(a.original, "rb").read()
@@ -226,8 +228,9 @@ def main():
     caso("Game A, sem luz (A nunca apertado)", r, "erro", t)
     r, t = tiro(pat, "pad", luz_sempre=True)
     caso("Game A, A apertado o tempo todo (proteção preta)", r, "erro", t)
-    r, t = tiro(pat, "pad", mira=(10, 220), L=3)
-    caso("Game A, mira fora do pato (chão escuro)", r, "erro", t)
+    for L in range(0, K - 1):
+        r, t = tiro(pat, "pad", mira=(10, 220), L=L)
+        caso(f"Game A, mira fora do pato (o céu some), atraso {L}", r, "erro", t)
     for L in (2, 5):
         r, t = tiro(pat, "pad", "B", (1, 2), mira=1, L=L)
         caso(f"Game B, mira no pato 1, atraso {L}", r, "ACERTO pato 1", t)
@@ -243,6 +246,11 @@ def main():
     caso("modo $24<>0 (só fundo), mira na tela, atraso 4", r, "acerto", t)
     r, t = tiro(pat, "pad", modo24=True, luz_sempre=True)
     caso("modo $24<>0, A o tempo todo", r, "erro", t)
+    for L in (0, 4):
+        r, t = tiro(pat, "pad", mira=1, L=L, sem_nvram=True)
+        caso(f"sem RAM com bateria (padrão 7/8), atraso {L}", r, "ACERTO pato 1", t)
+    r, t = tiro(pat, "pad", luz_sempre=True, sem_nvram=True)
+    caso("sem RAM com bateria, A o tempo todo", r, "erro", t)
     for p in (3, 5, 6):
         q = teste_gatilho(pat, "pad", p)
         caso(f"gatilho: B por {p} quadros (~{p * 16.7:.0f} ms) registra o tiro", f"quadro {q}" if q is not None else "não registrou", "quadro")
