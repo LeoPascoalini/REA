@@ -58,6 +58,7 @@ class NES:
         self.estado = [0, 0]                        # byte latched: bit7=A ... bit0=Dir
         self.pad1 = lambda q: set()                 # quadro -> conjunto de botões
         self.gatilho = lambda q: False
+        self.pad2 = None                            # protocolo 2: quadro -> botões do controle 2
         self.mira = None                            # (x, y) ou None
         self.L, self.H = 0, 2
         self.luz_sempre = False
@@ -157,10 +158,12 @@ class NES:
         return b
 
     def _latch(self):
-        luz = self.luz()
-        p2 = {"A"} if luz else set()
-        if self.gatilho(self.quadro):
-            p2.add("B")
+        if self.pad2 is not None:                    # protocolo 2: a pistola diz os botões
+            p2 = set(self.pad2(self.quadro))
+        else:                                        # protocolo 1: A = luz, B = gatilho
+            p2 = {"A"} if self.luz() else set()
+            if self.gatilho(self.quadro):
+                p2.add("B")
         self.estado = [self._byte_pad(self.pad1(self.quadro)), self._byte_pad(p2)]
         self.idx = [0, 0]
 

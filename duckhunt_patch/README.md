@@ -15,6 +15,21 @@ Patch IPS que faz o Duck Hunt ler a pistola caseira (TEPT4400 + ESP32-S3) como u
 
 ROM alvo: **Duck Hunt (World)**, NROM-128 (16 KB PRG + 8 KB CHR), **CRC32 da ROM sem cabeçalho `24598791`**. Use o dump do seu cartucho. Se o CRC bater, os bytes são idênticos.
 
+## Duas versões: V4 (o jogo decide) e V5 (a pistola decide)
+
+| | **V4** — protocolo 1 | **V5** — protocolo 2 |
+|---|---|---|
+| Quem decide o acerto | o jogo, olhando o botão A ("vejo luz") | a pistola, olhando a piscada na TV |
+| Piscada | K + 2 pretos + quadrado até a resposta voltar (~220 ms) | 2 pretos, 2 de quadrado, 1 preto (~83 ms); Game B: + 2 de quadrado e 1 preto (~133 ms) |
+| Botões do controle 2 | A = luz, B = gatilho | B = gatilho, A = acertou (alvo 1), A + B = acertou o alvo 2 |
+| O jogo espera a pistola? | sim, com o quadrado na tela | nunca: segue como erro e derruba o pato se o "acertou" chegar em até ~150 ms |
+| Menu CALIBRATION / RAM com bateria | sim (K, N, S) | não precisa (a pistola mede o próprio atraso) |
+| Fonte / patch | `src/patch.s` → `dist/duckhunt_pistola.ips` | `src/patch_p2.s` → `dist/duckhunt_pistola_p2.ips` |
+| Firmware | `#define PROTOCOLO 1` | `#define PROTOCOLO 2` |
+| CRC32 da cópia (sem cabeçalho) | `F85C4174` | `039228AF` |
+
+**Use a ROM e o firmware do mesmo protocolo.** O resto deste README descreve a V4, exceto a seção "V5" no fim. A regra da pistola na V5 está em [`firmware pistola/PROTOCOLO_NOVO.md`](firmware%20pistola/PROTOCOLO_NOVO.md).
+
 ## Como usar o menu CALIBRATION
 
 Na tela de título, o **Select** do controle 1 (ou um **tiro fora da TV**, como no jogo original) passa por:
@@ -71,6 +86,11 @@ Se o sensor não mudar em 1,5 s (pistola fora da TV ou sensor sempre aceso), a c
 | `test_menu.py` | Testes do menu, da calibração, da RAM com bateria e de uma partida completa |
 | `dist/duckhunt_pistola.ips` | O patch |
 | `dist/tabela_enderecos.md` | Tabela de endereços alterados (gerada pelo build) |
+| `src/patch_p2.s`, `src/patch_p2.cfg` | V5 (protocolo 2): código-fonte e configuração do ld65 |
+| `dist/duckhunt_pistola_p2.ips`, `dist/tabela_enderecos_p2.md` | V5: o patch e a tabela de endereços |
+| `test_p2.py` | Testes da V5 no NES simulado, com uma pistola simulada que segue o protocolo 2 |
+| `firmware pistola/pistola.ino` | Firmware da pistola (ESP32-S3), protocolos 1 e 2 |
+| `firmware pistola/PROTOCOLO_NOVO.md` | A regra da pistola no protocolo 2 |
 
 `tools/` (cc65), `build/` e qualquer `.nes` ficam fora do Git.
 
@@ -223,3 +243,37 @@ python -P test_menu.py build\DuckHunt_pistola.nes
 - **Code/Data Logger:** jogar Game A, B e C, o título e um game over, e confirmar que `$EF60-$F2F7`, `$FF30-$FFDF` e os três trechos mortos nunca são executados nem lidos pelo código original, e que `$07E0-$07FF` nunca é acessado por ele.
 
 Já resolvido no código: o "modo `$24≠0`" é o **tiro na tela de título** (acerto = começar, erro = próxima opção), e o Game C usa a mesma rotina de flash (`$1F = 2`).
+
+## V5 (protocolo 2): como funciona e como testar
+
+```powershell
+python build.py "C:\caminho\do\seu\dump.nes" --protocolo 2      # gera dist/duckhunt_pistola_p2.ips e build/DuckHunt_V5.nes
+python -P test_p2.py build\DuckHunt_V5.nes
+```
+
+### O que a V5 muda na ROM (só 3 pontos do original + 352 bytes novos em `$EF60`)
+
+| Endereço | Original | Novo | Para quê |
+|---|---|---|---|
+| cabeçalho | Zapper | controles padrão, sem RAM extra | o emulador põe um controle na porta 2 |
+| `$C071` | `JSR $C284` (lê os controles) | `JSR PorQuadro` | 1x por quadro: confere se chegou o "acertou" no prazo |
+| `$D131` | `LDA $4017` (gatilho da Zapper) | `JSR LerGatilho` | só B **sozinho** e fora do prazo é tiro; A + B é mensagem |
+| `$D1C7` | `JSR $D292 / JSR $C61E` | `JMP FlashComQuadrado / JMP FlashSemQuadrado` | piscada curta e fixa, escutando o controle 2 |
+
+- **Depois da piscada o jogo segue pelo caminho original do erro** (`$D259`). Por 9 quadros (~150 ms) ainda aceita A (alvo 1) ou A + B (alvo 2) e, se chegar, derruba o pato **onde ele estiver**, com as mesmas três operações do acerto original (`$D246`: estado 4, `INC $AA`, `INC $BD`). Só derruba se o pato ainda estiver voando.
+- **A bala fica "devolvida" durante o prazo** e só é gasta quando ele acaba. Assim, na última bala, o pato não foge antes de um "acertou" atrasado chegar. A fuga sem balas (`$CA29`) acontece ~150 ms depois.
+- **Tela de título:** o tiro na TV acende o título por 2 quadros; o jogo espera o prazo e então começa a partida (acerto) ou passa para a próxima opção (erro).
+- RAM nova em `$07E0-$07E4` (página que o jogo não usa nem limpa no RESET).
+
+### Testes da V5 (`test_p2.py`, 36 casos, ~5 min)
+
+A pistola simulada vê a TV com atraso (`Lout`), o que ela aperta chega no jogo com outro atraso (`Lin`), e ela segue as regras de `PROTOCOLO_NOVO.md`. Os testes cobrem:
+- a forma da piscada (Game A: `P P Q Q P`; Game B: `P P Q1 Q1 P Q2 Q2 P`);
+- céu → erro, pato → acerto, um tiro registrado por gatilho (sem tiro fantasma), bala gasta só depois do prazo;
+- última bala no céu → o pato só foge depois do prazo; última bala no pato com envio lento (`Lin` = 5 quadros) → o acerto ainda vale;
+- Game B: pato 1 → só o pato 1; pato 2 → só o pato 2 (A + B); Game C: prato 2;
+- atrasos diferentes (`Lout`/`Lin` de 1 a 4);
+- pistola com a ida errada (trocou USB/Bluetooth) → nenhum acerto falso, reaprende no tiro seguinte e volta a acertar;
+- tela de título: tiro fora → próxima opção; tiro na TV → começa a partida.
+
+O firmware também foi compilado no PC (Visual Studio, com o Arduino e as bibliotecas simulados) e rodado com relógio, TV e gatilho simulados: 13 cenários, nas versões Bluetooth e USB. **Ainda falta o teste na TV de verdade.**

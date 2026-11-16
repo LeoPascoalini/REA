@@ -1,5 +1,10 @@
 # Nova lógica de tiro da pistola (Duck Hunt) — especificação para o firmware
 
+> **Estado:** implementado em `pistola.ino` (`#define PROTOCOLO 2`) e na ROM V5 (`src/patch_p2.s`).
+> Testado no simulador (`test_p2.py`, 36 casos, com uma pistola simulada que segue estas regras) e com o
+> próprio firmware compilado no PC, com relógio, TV e gatilho simulados (13 cenários, Bluetooth e USB).
+> Falta o teste na TV de verdade.
+
 ## Contexto
 - Firmware: `pistola.ino` (ESP32-S3 Super Mini). Sensor TEPT4400 no GPIO1 (ADC, 10k para o GND), gatilho no GPIO2.
   A pistola é um gamepad HID por Bluetooth (BLE, ESP32-BLE-Gamepad + NimBLE) ou USB (USBHIDGamepad), conforme `USAR_BLUETOOTH`.
@@ -48,12 +53,21 @@ Na TV de tubo o feixe passa pelo ponto mirado 1 vez por quadro: quando o ponto e
 ## Algoritmo por tiro (F = 16,67 ms)
 1. **Gatilho** (borda, com debounce): manda o pulso de B. Guarda `tGat`. Entra no estado TIRO.
    Enquanto estiver em TIRO e no bloqueio (passo 6), **ignore novos gatilhos**.
-2. **Achar o início do preto (`t0`)**:
-   - Se havia pulsos regulares antes (mira em ponto claro, ex. céu): `t0` = instante do 1º pulso que **faltou**
-     (último pulso + F) depois de `tGat`. Ou seja, foi detectado um intervalo > 1,5 F sem pulso.
-     Nesse caso, meça `ida = t0 - tGat` e atualize uma estimativa (média ou mediana das últimas ~8 medições;
-     valor inicial 70 ms).
-   - Se estava escuro (mira em ponto escuro, ex. corpo do pato): `t0 = tGat + idaEstimada`.
+2. **Achar o início do preto (`t0`)**. "Ida" = `t0 - tGat`. Ela inclui o pulso do gatilho (o jogo só
+   registra o tiro quando B é solto), então é ~150 ms, não ~70.
+   - **Pelo céu:** o último pulso foi seguido de 2 quadros sem pulso (um quadro preto confirmado
+     por mais um). `t0` = último pulso + F. Aceite só se `t0 > tGat + 3F` (depois do pulso do gatilho) e:
+     - se ainda **não há nenhuma medição**: aceite (é assim que a ida é aprendida);
+     - se **já há medição**: só se `t0 - tGat` estiver entre `ida - 2F` e `ida + 3F`.
+       Sem isso, o pato passando sob a mira (corpo escuro) parece o início do preto.
+     Ao aceitar, guarde a medição (média das últimas 8).
+   - **Pela estimativa** (ponto mirado escuro, ex. corpo do pato): só se **já houver medição**, quando
+     passar `tGat + ida + 5F` sem sincronia pelo céu: `t0 = tGat + ida`, e avalie os pulsos guardados
+     no histórico (olhar para trás).
+     **Confira os quadros 0 e 1:** se houver luz neles, a estimativa está errada (e essa luz seria o céu).
+     Então NÃO mande nada (um erro falso é melhor que um acerto falso) e **esqueça as medições**
+     (zere a contagem E a posição da lista): no próximo tiro com o ponto claro, a ida é reaprendida.
+     Isso cobre a troca de USB para Bluetooth (a ida muda).
 3. **Janela 1** = pulsos entre `t0 + 1,5F` e `t0 + 3,5F` (quadros 2-3).
    No **primeiro pulso** dentro dela → manda **A** imediatamente (acertou / pato 1). Fim da decisão.
 4. **Janela 2** = pulsos entre `t0 + 4,5F` e `t0 + 6,5F` (quadros 5-6), **e** nenhum pulso entre
@@ -63,8 +77,7 @@ Na TV de tubo o feixe passa pelo ponto mirado 1 vez por quadro: quando o ponto e
 5. Se nenhuma janela deu acerto até `t0 + 7,5F` → **não manda nada** (errou).
    Luz fora das janelas (céu voltando) é sempre ignorada.
 6. **Bloqueio**: só saia do estado TIRO (aceitar novo gatilho) depois de `t0 + 8F + 160 ms`.
-   Se nunca sincronizou e nada aconteceu: saia 450 ms depois de `tGat`
-   (o jogo pode ter ignorado o tiro, por exemplo sem balas).
+   Se nunca sincronizou: saia 600 ms depois de `tGat` (o jogo pode ter ignorado o tiro, por exemplo sem balas).
 7. Nunca mande A ou A + B depois de `t0 + 8F` (o jogo só aceita até ~150 ms depois da piscada).
 
 ## Manter como está
